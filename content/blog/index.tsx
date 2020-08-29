@@ -1,20 +1,7 @@
 import * as Welcome from "./Welcome.mdx";
 import * as Caching from "./Caching.mdx";
+import * as NextJSPortfolio from "./NextJSPortfolio.mdx";
 
-enum MONTHS {
-  JAN = 0,
-  FEB = 1,
-  MAR = 2,
-  APR = 3,
-  MAY = 4,
-  JUN = 5,
-  JUL = 6,
-  AUG = 7,
-  SEP = 8,
-  OCT = 9,
-  NOV = 10,
-  DEC = 11,
-}
 export interface IBlogPost {
   meta: {
     title: string;
@@ -26,7 +13,7 @@ export interface IBlogPost {
   content: React.ReactNode;
 }
 
-const posts = [Welcome, Caching];
+const posts = [Welcome, Caching, NextJSPortfolio];
 
 export const blogPosts: IBlogPost[] = posts
   .map((Post) => ({

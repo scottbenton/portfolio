@@ -1,0 +1,44 @@
+.btn {
+  @apply flex items-center justify-center px-4 py-2 font-bold tracking-wider text-center uppercase rounded-md;
+}
+.btn:focus {
+  @apply outline-none;
+}
+.btn-animate {
+  @apply transition-all duration-300 ease-in-out transform;
+}
+.btn-animate:hover {
+  @apply scale-110;
+}
+.btn-animate:focus {
+  @apply scale-110;
+}
+
+.btn-filled {
+  @apply shadow-md;
+}
+.btn-filled:hover {
+  @apply shadow-xl;
+}
+
+.btn-filled-white {
+  @apply text-purple-700 bg-white;
+}
+.btn-filled-white:focus {
+  @apply border-2 border-purple-700;
+}
+.btn-filled-purple {
+  @apply text-white bg-purple-700;
+}
+
+.btn-outlined {
+  @apply border;
+}
+
+.btn-outlined-white {
+  @apply text-white border-white;
+}
+
+.btn-outlined-purple {
+  @apply text-purple-700 border-purple-700;
+}

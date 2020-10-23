@@ -12,7 +12,7 @@ export const TechnologyList: React.FC<TechnologyListProps> = (props) => {
   return (
     <div className={clsx(className, "flex flex-wrap")}>
       {technologies.map((technology, index) => (
-        <Chip key={index} className={"ml-0 mr-2"}>
+        <Chip key={index} className={"ml-0 mr-1 mb-1"}>
           {technology}
         </Chip>
       ))}

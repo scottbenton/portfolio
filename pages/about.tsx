@@ -6,7 +6,7 @@ const About: React.FC = () => {
   return (
     <>
       <h1>About Me</h1>
-      <Card className={"mt-4 max-w-screen-md mx-auto"}>
+      <Card className={"mt-4 mx-auto"}>
         <div className={" px-2 prose"}>
           <AboutMe />
         </div>

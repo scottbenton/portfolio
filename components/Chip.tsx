@@ -11,7 +11,7 @@ export const Chip: React.FC<ChipProps> = (props) => {
     <div
       className={clsx(
         className,
-        "text-xs tracking-wider font-bold px-2 py-1 mx-1 mt-1 bg-purple-700 text-white rounded-md"
+        "text-xs tracking-wider font-bold px-2 py-1 bg-purple-700 text-white rounded-md"
       )}
     >
       {children}

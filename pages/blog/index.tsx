@@ -3,31 +3,35 @@ import { blogPosts } from "content/blog";
 import { Card } from "@/components/Card";
 import { Chip } from "@/components/Chip";
 import { dateToLongString } from "@/helpers/time-helpers";
+import { TechnologyList } from "../../components/TechnologyList";
 
-const Blog: React.FC = (props) => {
+const Blog: React.FC = () => {
   return (
     <>
       <h1>Blog Posts</h1>
       <span className={"text-lg text-gray-700"}>
         Posts about things I've learned or built
       </span>
-      <div className={"max-w-screen-md w-full p-8"}>
+      <div className={"max-w-screen-md px-4"}>
         {blogPosts.map((post, index) => (
           <Card
             key={index}
-            className={"w-full mt-6"}
+            className={"w-full mt-6 p-6"}
             href={"/blog/" + post.meta.url}
           >
             <>
               <h2>{post.meta.title}</h2>
-              <span>{post.meta.subtitle}</span>
-              <span>{dateToLongString(post.meta.datePosted)}</span>
+              <span className={"mt-1 text-gray-700 text-lg"}>
+                {post.meta.subtitle}
+              </span>
+              <span className={"mt-4 text-gray-700 text-lg"}>
+                {dateToLongString(post.meta.datePosted)}
+              </span>
               {post.meta.tags && (
-                <div className={"flex"}>
-                  {post.meta.tags.map((tag, index) => (
-                    <Chip key={index}>{tag}</Chip>
-                  ))}
-                </div>
+                <TechnologyList
+                  technologies={post.meta.tags}
+                  className={"mt-4"}
+                />
               )}
             </>
           </Card>

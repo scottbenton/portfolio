@@ -10,7 +10,7 @@ export const Content: React.FC<ContentProps> = (props) => {
   return (
     <div
       className={clsx(
-        "flex flex-col flex-grow items-center max-w-screen-xl mx-auto ",
+        "flex flex-col flex-grow items-center max-w-screen-xl mx-auto w-full",
         className
       )}
     >

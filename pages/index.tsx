@@ -7,12 +7,12 @@ const Home: React.FC = () => {
     <>
       <div
         className={
-          "w-full px-2 md:px-8 flex flex-col justify-center items-center md:items-start text-center md:text-left"
+          "w-full px-2 md:px-8 flex flex-col justify-center items-center md:items-start mt-8 md:mt-24 text-center md:text-left"
         }
       >
         <h1
           className={
-            "text-3xl md:text-4xl mt-8 md:mt-16 font-display leading-tight tracking-tight"
+            "text-3xl md:text-4xl font-display leading-tight tracking-tight"
           }
         >
           Software Developer
@@ -24,24 +24,24 @@ const Home: React.FC = () => {
           </span>
         </div>
       </div>
-      <div className={"relative h-32 md:h-48 w-full mt-8 md:mt-0"}>
+      <div className={"relative h-32 md:h-48  md:mt-12 w-screen"}>
         <SvgWave className={"text-purple-600"} />
         <SvgWave className={"text-purple-700 mt-8 md:mt-12"} />
         <img
           src={"/transparentProfile.png"}
           alt={"Picture of Scott Benton"}
           className={
-            "hidden md:inline w-48 absolute right-0 bottom-0 mb-8 mr-1/5"
+            "hidden md:inline w-56 absolute right-0 bottom-0 mb-8 mr-1/5"
           }
         />
         <SvgWave className={"text-purple-800 mt-16 md:mt-24 relative"} />
       </div>
       <div
         className={
-          "bg-purple-800 flex-grow flex items-center justify-center w-full"
+          "bg-purple-800 flex-grow flex items-center justify-center w-screen"
         }
       >
-        <div className={"mx-auto w-full max-w-xs px-4 py-16"}>
+        <div className={"mx-auto w-full max-w-xs px-4 pt-8"}>
           <Link href="/projects">
             <a
               className={

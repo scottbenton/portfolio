@@ -27,7 +27,7 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = (props) => {
         <a
           href={prodLink}
           className={
-            "cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-xl"
+            "cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-xl overflow-hidden rounded-md"
           }
         >
           <img src={imageUrl} className={"w-full"} alt={altText} />

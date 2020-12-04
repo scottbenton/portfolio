@@ -1,0 +1,7 @@
+.chip-base {
+  @apply text-xs tracking-wider font-bold px-2 py-1 bg-gray-400 text-gray-900 rounded-md;
+}
+
+.chip-primary {
+  @apply bg-purple-700 text-white;
+}

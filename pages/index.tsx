@@ -17,24 +17,28 @@ const Home: React.FC = () => {
         >
           Software Developer
         </h1>
-        <div className={"flex items-baseline mt-2 "}>
-          <MapMarker className={"w-5 h-5 text-gray-600 stroke-current"} />
-          <span className={"text-2xl ml-2 text-gray-800 tracking-wide"}>
+        <div className={"flex items-center mt-4"}>
+          <MapMarker className={"w-8 h-8 text-gray-600 stroke-current"} />
+          <span
+            className={
+              "text-2xl ml-1 text-gray-800 tracking-wide font-display font-semibold"
+            }
+          >
             Ithaca, NY
           </span>
         </div>
       </div>
-      <div className={"relative h-32 md:h-48  md:mt-12 w-screen"}>
+      <div className={"relative h-24 md:h-48 mt-8 md:mt-12 w-screen"}>
         <SvgWave className={"text-purple-600"} />
-        <SvgWave className={"text-purple-700 mt-8 md:mt-12"} />
         <img
           src={"/transparentProfile.png"}
           alt={"Picture of Scott Benton"}
           className={
-            "hidden md:inline w-56 absolute right-0 bottom-0 mb-8 mr-1/5"
+            "hidden md:inline h-96 absolute right-0 bottom-0 md:mb-12 mr-1/4"
           }
         />
-        <SvgWave className={"text-purple-800 mt-16 md:mt-24 relative"} />
+        <SvgWave className={"text-purple-700 mt-6 md:mt-12"} />
+        <SvgWave className={"text-purple-800 mt-12 md:mt-24 relative"} />
       </div>
       <div
         className={

@@ -92,7 +92,7 @@ export const ContactForm: React.FC = (props) => {
   const Container = ({ children }) => (
     <div
       className={
-        "bg-purple-700 w-full max-w-screen-sm p-4 text-white rounded-lg my-8"
+        "bg-purple-700 w-full max-w-screen-sm p-4 text-white rounded-lg my-6"
       }
     >
       {children}

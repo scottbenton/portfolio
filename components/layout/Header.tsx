@@ -9,11 +9,18 @@ export function Header() {
   const isFlatPage =
     router.pathname === "/" || router.pathname === "/blog/[post]";
 
+  const isHomePage = router.pathname === "/";
+
   return (
-    <header className={clsx("z-10", isFlatPage ? "" : "shadow-lg bg-white")}>
+    <header
+      className={clsx(
+        "z-10 h-12 md:h-16",
+        isFlatPage ? "" : "shadow-md bg-white"
+      )}
+    >
       <div
         className={
-          "max-w-screen-xl justify-center md:justify-between flex mx-auto"
+          "max-w-screen-xl justify-center md:justify-between items-center flex mx-auto h-full"
         }
       >
         <div>
@@ -21,14 +28,14 @@ export function Header() {
             <a
               aria-label="Scott Benton Homepage"
               className={
-                "px-4 md:px-8 flex font-display pt-1 my-1 md:my-2 text-gray-900 text-2xl hover:underline font-semibold tracking-tight focus:outline-none"
+                "px-4 md:px-8 flex font-display my-1 md:my-2 text-gray-900 text-2xl md:text-3xl font-normal hover:underline tracking-tight focus:outline-none"
               }
             >
               Scott Benton
             </a>
           </Link>
         </div>
-        <nav className={"hidden md:flex"}>
+        <nav className={"hidden md:flex h-full"}>
           {Object.values(PAGES).map((page, index) => (
             <Link key={index} href={page.path}>
               <a

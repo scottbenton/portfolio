@@ -22,31 +22,34 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = (props) => {
   } = project;
 
   return (
-    <div
-      className={clsx(
-        "flex items-stretch flex-wrap flex-row bg-white shadow-lg rounded-lg overflow-hidden mt-8",
-        index === 0 ? "mt-8" : "mt-12"
-      )}
-    >
-      <div className={"md:w-1/2 w-full"}>
-        <img src={imageUrl} className={"w-full "} alt={altText} />
+    <div className={"flex items-stretch flex-wrap flex-row mb-20"}>
+      <div className={"w-full md:w-1/2 md:pr-4 flex"}>
+        <a
+          href={prodLink}
+          className={
+            "cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-xl"
+          }
+        >
+          <img src={imageUrl} className={"w-full"} alt={altText} />
+        </a>
       </div>
-      <div
-        className={
-          "md:w-1/2 w-full p-4 md:pl-4 md:p-2 flex flex-col border md:rounded-r-lg rounded-b-lg md:rounded-bl-none"
-        }
-      >
-        <h2 className={"mt-0"}>{name}</h2>
+      <div className={"md:w-1/2 w-full md:pl-4 flex flex-col mt-4 md:mt-0"}>
+        <h2>{name}</h2>
         <div className={"flex-grow mt-1"}>{description}</div>
         {technologies && (
-          <TechnologyList technologies={technologies} className={"mt-4"} />
+          <TechnologyList
+            technologies={technologies}
+            className={"mt-4"}
+            chipPrimary={false}
+          />
         )}
         <div className={"flex flex-wrap items-baseline"}>
           {prodLink && (
             <a
               href={prodLink}
               className={
-                "uppercase text-purple-800 font-semibold text-sm focus:underline hover:underline tracking-wide mt-2"
+                "btn btn-animate btn-outlined btn-outlined-purple text-sm px-2 py-1 mt-2 "
+                // "uppercase  px-4 py-1 rounded-md font-semibold text-sm hover:underline focus:underline tracking-wide mt-2 text-purple-800 border border-purple-700"
               }
             >
               Visit the Project
@@ -56,7 +59,7 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = (props) => {
             <a
               href={codeLink}
               className={
-                "uppercase font-semibold ml-6 text-sm focus:underline hover:underline tracking-wide my-1"
+                "btn btn-animate text-sm px-2 py-1 mt-2 ml-4 hover:bg-gray-300"
               }
             >
               View the Code

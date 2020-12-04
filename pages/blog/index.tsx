@@ -12,11 +12,11 @@ const Blog: React.FC = () => {
       <span className={"text-lg text-gray-700"}>
         Posts about things I've learned or built
       </span>
-      <div className={"max-w-screen-md px-4"}>
+      <div className={"px-4 w-full max-w-2xl"}>
         {blogPosts.map((post, index) => (
           <Card
             key={index}
-            className={"w-full mt-6 p-6"}
+            className={"w-full mt-6 px-6 py-4"}
             href={"/blog/" + post.meta.url}
           >
             <>
@@ -24,15 +24,16 @@ const Blog: React.FC = () => {
               <span className={"mt-1 text-gray-700 text-lg"}>
                 {post.meta.subtitle}
               </span>
-              <span className={"mt-4 text-gray-700 text-lg"}>
-                {dateToLongString(post.meta.datePosted)}
-              </span>
-              {post.meta.tags && (
-                <TechnologyList
-                  technologies={post.meta.tags}
-                  className={"mt-4"}
-                />
-              )}
+              <div
+                className={"flex flex-wrap justify-between items-center mt-4"}
+              >
+                <span className={" text-gray-700 text-md"}>
+                  {dateToLongString(post.meta.datePosted)}
+                </span>
+                {post.meta.tags && (
+                  <TechnologyList technologies={post.meta.tags} />
+                )}
+              </div>
             </>
           </Card>
         ))}

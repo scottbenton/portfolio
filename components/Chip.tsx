@@ -3,17 +3,13 @@ import clsx from "clsx";
 
 interface ChipProps {
   className?: string;
+  primary?: boolean;
 }
 
 export const Chip: React.FC<ChipProps> = (props) => {
-  const { children, className } = props;
+  const { children, className, primary = true } = props;
   return (
-    <div
-      className={clsx(
-        className,
-        "text-xs tracking-wider font-bold px-2 py-1 bg-purple-700 text-white rounded-md"
-      )}
-    >
+    <div className={clsx(className, "chip-base", primary && "chip-primary")}>
       {children}
     </div>
   );

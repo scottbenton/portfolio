@@ -6,7 +6,7 @@ const Projects: React.FC = (props) => {
   return (
     <>
       <h1>Projects</h1>
-      <div className={"mx-auto px-4 max-w-screen-md py-4"}>
+      <div className={"mx-auto px-8 max-w-screen-lg w-full pt-12"}>
         {projects.map((project, index) => (
           <ProjectComponent key={index} project={project} index={index} />
         ))}

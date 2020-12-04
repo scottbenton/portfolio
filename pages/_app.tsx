@@ -35,7 +35,7 @@ const MyApp: React.FC<MyAppProps> = (props) => {
       </Head>
       <div
         className={clsx(
-          "antialiased flex flex-col min-h-screen font-body text-gray-800",
+          "antialiased font-body text-gray-900 flex flex-col min-h-screen",
           whiteBackground ? "bg-white" : "bg-gray-200"
         )}
       >

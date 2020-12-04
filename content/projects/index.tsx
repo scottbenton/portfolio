@@ -2,6 +2,7 @@ import PantryContent from "./Pantry.mdx";
 import ASORTDContent from "./Asortd.mdx";
 import TextTwistContent from "./TextTwist.mdx";
 import DadditContent from "./Daddit.mdx";
+import EberronContent from './Eberron.mdx';
 
 export interface ProjectConfig {
   name: string;
@@ -14,6 +15,15 @@ export interface ProjectConfig {
 }
 
 export const projects: ProjectConfig[] = [
+  {
+    name: "Dungeons & Dragons Notes",
+    imageUrl: "/eberron.png",
+    altText: "DnD Notes Website Screenshot",
+    description: <EberronContent />,
+    technologies: ["NextJS", "Tailwind CSS"],
+    prodLink: "https://eberron.scottbenton.dev",
+    codeLink: "https://github.com/scottbenton/eberron"
+  },
   {
     name: "Pantry",
     imageUrl: "/pantry.png",

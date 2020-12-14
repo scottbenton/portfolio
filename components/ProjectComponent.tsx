@@ -23,7 +23,7 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = (props) => {
 
   return (
     <div className={"flex items-stretch flex-wrap flex-row mb-20"}>
-      <div className={"w-full md:w-1/2 md:pr-4 flex"}>
+      <div className={"w-full md:w-1/2 md:pr-4 flex items-center"}>
         <a
           href={prodLink}
           className={

@@ -12,7 +12,7 @@ const Blog: React.FC = () => {
       <span className={"text-lg text-gray-700"}>
         Posts about things I've learned or built
       </span>
-      <div className={"px-4 w-full max-w-2xl"}>
+      <div className={"px-4 w-full max-w-2xl pb-4"}>
         {blogPosts.map((post, index) => (
           <Card
             key={index}

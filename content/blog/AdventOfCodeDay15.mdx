@@ -1,0 +1,74 @@
+export const meta = {
+  title: "Troubleshooting Javascript Performance Issues for Advent of Code",
+  subtitle: "Day 15: Maps or Objects?",
+  datePosted: new Date(2020, 11, 15),
+  tags: ["Javascript", "Performance"],
+  url: "advent-performance-issues",
+};
+
+This holiday season I have been participating in [Advent of Code](https://adventofcode.com/).
+Similar to an advent calendar, each day a new problem is released to puzzle over and write a solution to.
+Day 15's problem, which can be read [here](https://adventofcode.com/2020/day/15) involved implementing a solution to calculate a specific index in Van Eck's Sequence.
+Van Eck's sequence is described in more detail below.
+Upon creating a solution for this problem, I found that my javascript code took a lot longer than I expected to run, despite my solution being `O(n)`.
+This post describes Van Eck's Sequence, my solution for the Advent of Code problem, why I believe the performance issues occurred, and how I fixed them.
+
+## Van Eck's Sequence
+
+This sequence generates new numbers by finding the previous occurrence of the current number in the sequence.
+If the current number has never been in the sequence before, the next number will be 0.
+Otherwise it will be the difference between the two indexes.
+There is a walkthrough of the first 5 numbers in the sequence below.
+
+```
+0 <- Starting here, 0 has not occurred elsewhere, so we will add 0
+0 0 <- The difference between these two 0's is 1, so let's add that
+0 0 1 <- 1 has not occurred elsewhere, add 0
+0 0 1 0 <- the difference between the last two 0's is 2, so let's add that
+0 0 1 0 2
+... continue the sequence
+```
+
+## Advent of Code Solution
+
+The Advent of Code problem (again, detailed [here](https://adventofcode.com/2020/day/15)) involved continuing Van Eck's sequence from a starter array and finding the `nth` number of the sequence.
+My solution works in `O(n)` time, as instead of performing a search to find the last index of the current value, I stored the last index for a given value in a Javascript Object.
+Then all we need to do to generate the next number in a sequence is to find the difference between the current index, and the index stored in the object, if it exists, or set the number to 0 if it doesn't.
+
+[Github Link](https://github.com/scottbenton/AdventOfCode2020/tree/master/Day15)
+
+## Performance Issues & Solutions
+
+The solution above worked fine for part 1, where `n = 2020`, but broke down for part 2, where `n = 30,000,000`.
+After researching Van Eck's sequence, and coming to the conclusion that `O(n)` was the best I could do for this problem, I figured the performance issues must be coming from Javascript.
+I quickly implemented and ran the same solution in Python, and the code that had taken minutes to run in Javascript took only seconds in Python.
+While I had expected a difference, I had not expected this large of one.
+
+Heading back to the Javascript code, I decided to see if using maps instead of objects could solve the performance problems.
+Switching out the object syntax for the map syntax, I reran the code and saw a large difference.
+
+| Solution Type | Execution Time              |
+| ------------- | --------------------------- |
+| Object        | 12 minutes and 52.6 seconds |
+| Map           | 7.9 seconds                 |
+
+## Potential Causes
+
+Despite solving the performance issues, I wanted to learn why this issue was occurring.
+
+I first wondered if I had a memory leak somewhere, and wanted to see how much memory was being used by each function.
+I called `process.memoryUsage().heapUsed` within each function, and got the results below.
+
+| Solution Type | Heap Used |
+| ------------- | --------- |
+| Object        | 1638 MB   |
+| Map           | 709 MB    |
+
+While the Object function used a little more than twice the memory, it is not drastic enough to be a memory leak, and isn't large enough to be causing issues of this magnitude.
+
+Looking around online, I saw some discussion about memory reallocation for Objects causing performance problems.
+To test this, I added some console messages every million items.
+The first few console messages printed out within seconds, and each subsequent one took longer and longer.
+While this isn't necessarily a memory reallocation issue - I suppose it could also be that accessing a value in an object isn't `O(n)`, I believe that the slowing performance does point to memory reallocation being the problem.
+
+Therefore, when working with large sets of data in Javascript, I would recommend using Maps rather than Objects, as the performance is greatly improved.

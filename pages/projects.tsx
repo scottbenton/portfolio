@@ -1,6 +1,6 @@
 import React from "react";
-import { projects } from "@/content/projects";
-import { ProjectComponent } from "@/components/ProjectComponent";
+import { projects } from "content/projects";
+import { ProjectComponent } from "components/ProjectComponent";
 
 const Projects: React.FC = (props) => {
   return (

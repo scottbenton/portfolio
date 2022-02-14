@@ -27,7 +27,8 @@ const handleValidate = (values: emailValues) => {
   if (!values.email) {
     errors.email = "Please enter your email";
   }
-  const emailExpression = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const emailExpression =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (!emailExpression.test(values.email)) {
     errors.email = "Email is not valid";
   }
@@ -47,7 +48,6 @@ export const ContactForm: React.FC = (props) => {
 
   const onSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-
     const values: emailValues = {
       name: evt.target[0].value,
       email: evt.target[1].value,
@@ -92,7 +92,7 @@ export const ContactForm: React.FC = (props) => {
   const Container = ({ children }) => (
     <div
       className={
-        "bg-purple-700 w-full max-w-screen-sm p-4 text-white rounded-lg my-6"
+        "bg-primary-700 w-full max-w-screen-sm p-4 text-white rounded-xl my-6"
       }
     >
       {children}
@@ -103,7 +103,7 @@ export const ContactForm: React.FC = (props) => {
     return (
       <Container>
         <h2>Message Sent</h2>
-        <span className={"text-purple-200 font-semibold tracking-wide"}>
+        <span className={"text-primary-200 font-semibold tracking-wide"}>
           Your message has been sent. I'll get back to you shortly!
         </span>
       </Container>
@@ -112,7 +112,7 @@ export const ContactForm: React.FC = (props) => {
     return (
       <Container>
         <h2>Error Sending Message</h2>
-        <span className={"text-purple-200 font-semibold tracking-wide"}>
+        <span className={"text-primary-200 font-semibold tracking-wide"}>
           An error was encountered while sending your message. You can still
           reach me at scott@scottbenton.dev.
         </span>
@@ -122,7 +122,7 @@ export const ContactForm: React.FC = (props) => {
     return (
       <Container>
         <h2>Send Me a Message</h2>
-        <span className={"text-purple-200 font-semibold tracking-wide"}>
+        <span className={"text-primary-200 font-semibold tracking-wide"}>
           I'll get back to you shortly!
         </span>
         <form onSubmit={onSubmit}>
@@ -148,7 +148,7 @@ export const ContactForm: React.FC = (props) => {
           <div className={"flex justify-end"}>
             <button
               className={clsx(
-                "btn btn-filled btn-filled-white btn-animate",
+                "btn btn-filled text-primary-700 bg-white focus:border-2 focus:border-primary-700  btn-animate",
                 emailSendStatus === EMAIL_STATUSES.LOADING
                   ? "bg-gray-400 text-gray-900 cursor-wait"
                   : ""

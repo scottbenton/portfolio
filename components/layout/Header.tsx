@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import clsx from "clsx";
-import { PAGES } from "@/components/layout/__pageConfig";
+import { PAGES } from "components/layout/__pageConfig";
 
 export function Header() {
   const router = useRouter();
@@ -24,16 +24,18 @@ export function Header() {
         }
       >
         <div>
-          <Link href="/">
-            <a
-              aria-label="Scott Benton Homepage"
-              className={
-                "px-4 md:px-8 flex font-display my-1 md:my-2 text-gray-900 text-2xl md:text-3xl font-normal hover:underline tracking-tight focus:outline-none"
-              }
-            >
-              Scott Benton
-            </a>
-          </Link>
+          {!isHomePage && (
+            <Link href="/">
+              <a
+                aria-label="Scott Benton Homepage"
+                className={
+                  "px-4 md:px-8 flex font-display my-1 md:my-2 text-gray-900 text-2xl md:text-3xl font-normal hover:underline tracking-tight focus:outline-none"
+                }
+              >
+                Scott Benton
+              </a>
+            </Link>
+          )}
         </div>
         <nav className={"hidden md:flex h-full"}>
           {Object.values(PAGES).map((page, index) => (

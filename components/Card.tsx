@@ -15,7 +15,7 @@ export const Card: React.FC<CardProps> = (props) => {
       <Link href={href}>
         <a
           className={clsx(
-            "flex flex-col bg-white shadow-md rounded-lg p-4",
+            "flex flex-col bg-white shadow-md rounded-xl p-4",
             className,
             "focus:outline-none cursor-pointer transition-all transform hover:shadow-xl hover:scale-105 duration-300 ease-in-out text-left"
           )}
@@ -28,7 +28,7 @@ export const Card: React.FC<CardProps> = (props) => {
     return (
       <div
         className={clsx(
-          "flex flex-col bg-white shadow-md rounded-lg p-4",
+          "flex flex-col bg-white shadow-md rounded-xl p-4",
           className
         )}
       >

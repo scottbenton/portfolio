@@ -1,8 +1,8 @@
 import React, { FormEvent } from "react";
-import ContactMe from "@/content/ContactMe.md";
-import { TextInput, TextArea } from "@/components/controls/TextInput";
+import ContactMe from "content/ContactMe.md";
+import { TextInput, TextArea } from "components/controls/TextInput";
 import clsx from "clsx";
-import { ContactForm } from "@/components/ContactForm";
+import { ContactForm } from "components/ContactForm";
 
 const Contact: React.FC = (props) => {
   return (

@@ -52,7 +52,7 @@ export const TextArea: React.FC<TextAreaProps> = (props) => {
               : "border-pink-400"
             : error
             ? "border-red-400"
-            : "border-purple-500"
+            : "border-primary-500"
         )}
       >
         <textarea

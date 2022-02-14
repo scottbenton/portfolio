@@ -1,8 +1,8 @@
 import React from "react";
 import { blogPosts } from "content/blog";
-import { Card } from "@/components/Card";
-import { Chip } from "@/components/Chip";
-import { dateToLongString } from "@/helpers/time-helpers";
+import { Card } from "components/Card";
+import { Chip } from "components/Chip";
+import { dateToLongString } from "helpers/time-helpers";
 import { TechnologyList } from "../../components/TechnologyList";
 
 const Blog: React.FC = () => {

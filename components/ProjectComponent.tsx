@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import { ProjectConfig } from "@/content/projects";
+import { ProjectConfig } from "content/projects";
 import { TechnologyList } from "./TechnologyList";
 
 interface ProjectComponentProps {
@@ -48,8 +48,7 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = (props) => {
             <a
               href={prodLink}
               className={
-                "btn btn-animate btn-outlined btn-outlined-purple text-sm px-2 py-1 mt-2 "
-                // "uppercase  px-4 py-1 rounded-md font-semibold text-sm hover:underline focus:underline tracking-wide mt-2 text-purple-800 border border-purple-700"
+                "btn btn-animate btn-outlined btn-outlined-primary text-sm px-2 py-1 mt-2 "
               }
             >
               Visit the Project

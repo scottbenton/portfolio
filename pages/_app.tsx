@@ -1,8 +1,8 @@
-import "@/styles/globals.css";
+import "styles/globals.css";
 import clsx from "clsx";
-import { Header, Footer, Content } from "@/components/layout/";
-import "typeface-comfortaa";
-import "typeface-roboto";
+import { Header, Footer, Content } from "components/layout/";
+import "@fontsource/comfortaa/variable.css";
+import "@fontsource/inter/variable.css";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
@@ -15,8 +15,7 @@ const MyApp: React.FC<MyAppProps> = (props) => {
   const { Component, pageProps } = props;
 
   const router = useRouter();
-  const whiteBackground = router.pathname === "/blog/[post]";
-  console.debug(whiteBackground);
+  const whiteBackground = ["/blog/[post]", "/"].includes(router.pathname);
 
   return (
     <>
@@ -35,7 +34,7 @@ const MyApp: React.FC<MyAppProps> = (props) => {
       </Head>
       <div
         className={clsx(
-          "antialiased font-body text-gray-900 flex flex-col min-h-screen",
+          "antialiased font-body text-gray-800 flex flex-col min-h-screen",
           whiteBackground ? "bg-white" : "bg-gray-200"
         )}
       >

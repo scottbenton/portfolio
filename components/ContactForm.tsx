@@ -1,4 +1,4 @@
-import React, { FormEvent } from "react";
+import React, { FormEvent, useRef } from "react";
 import clsx from "clsx";
 import { TextInput, TextArea } from "./controls/TextInput";
 
@@ -45,13 +45,21 @@ export const ContactForm: React.FC = (props) => {
   >();
 
   const [errors, setErrors] = React.useState<emailErrors>({});
+  const formRef = useRef<HTMLFormElement>(null);
 
   const onSubmit = (evt: FormEvent<HTMLFormElement>) => {
+    const nameField: HTMLInputElement = formRef
+      .current?.[0] as HTMLInputElement;
+    const emailField: HTMLInputElement = formRef
+      .current?.[1] as HTMLInputElement;
+    const messageField: HTMLTextAreaElement = formRef
+      .current?.[0] as HTMLTextAreaElement;
+
     evt.preventDefault();
     const values: emailValues = {
-      name: evt.target[0].value,
-      email: evt.target[1].value,
-      message: evt.target[2].value,
+      name: nameField.value,
+      email: emailField.value,
+      message: messageField.value,
     };
 
     const errors = handleValidate(values);
@@ -111,7 +119,7 @@ export const ContactForm: React.FC = (props) => {
   } else {
     return (
       <>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} ref={formRef}>
           <TextInput
             id={"name"}
             label={"Name"}

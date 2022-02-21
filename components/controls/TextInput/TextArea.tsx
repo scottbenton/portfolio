@@ -58,6 +58,7 @@ export const TextArea: React.FC<TextAreaProps> = (props) => {
         <textarea
           className={"input"}
           data-testid={descriptiveID}
+          id={descriptiveID}
           autoComplete={"no"}
           onFocus={handleFocus}
           onBlur={handleBlur}

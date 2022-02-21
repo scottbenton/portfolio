@@ -5,11 +5,14 @@ import { Layout } from "components/layout/Layout";
 
 const Projects: React.FC = (props) => {
   return (
-    <Layout>
-      <h1>Projects</h1>
-      <div className={"mx-auto px-8 max-w-screen-lg w-full pt-12"}>
+    <Layout title={"Projects"}>
+      <div
+        className={
+          "mx-auto max-w-screen-sm lg:max-w-screen-lg grid gap-6 grid-cols-1 lg:grid-cols-2 w-full mt-4 px-2 md:px-8"
+        }
+      >
         {projects.map((project, index) => (
-          <ProjectComponent key={index} project={project} index={index} />
+          <ProjectComponent key={index} project={project} />
         ))}
       </div>
     </Layout>

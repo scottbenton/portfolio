@@ -30,13 +30,11 @@ export function Header() {
   };
 
   return (
-    <header
-      className={clsx("z-10 hidden md:flex h-16 w-full items-center px-8")}
-    >
+    <header className={clsx("z-10 hidden md:flex h-16 w-full items-center")}>
       {isHomePage ? (
         <motion.nav
           layoutId={"nav"}
-          className={"flex items-center flex-grow justify-center"}
+          className={"flex items-center flex-grow justify-center px-8"}
         >
           {Object.values(PAGES).map((page, index) => (
             <Link key={index} href={page.path}>
@@ -49,7 +47,7 @@ export function Header() {
       ) : (
         <div
           className={
-            "w-full flex items-center justify-between max-w-screen-lg mx-auto"
+            "w-full flex items-center justify-between max-w-screen-lg mx-auto px-8"
           }
         >
           {!isHomePage && (

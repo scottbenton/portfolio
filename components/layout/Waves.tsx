@@ -5,7 +5,7 @@ export interface WavesProps {}
 
 const animations: Variants = {
   enterFrom: {
-    y: "-65vh",
+    y: "-100vh",
     opacity: 1,
   },
   default: {
@@ -13,7 +13,7 @@ const animations: Variants = {
     opacity: 1,
   },
   leaveTo: {
-    y: "-65vh",
+    y: "-100vh",
     opacity: 1,
   },
 };

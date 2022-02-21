@@ -5,9 +5,8 @@ import { Layout } from "components/layout/Layout";
 
 const About: React.FC = () => {
   return (
-    <Layout>
-      <h1>About Me</h1>
-      <Card className={"mt-4 mx-auto"}>
+    <Layout title={"About Me"}>
+      <Card className={"mt-4 mx-auto max-w-screen-sm w-full"}>
         <div className={" px-2 prose"}>
           <AboutMe />
         </div>

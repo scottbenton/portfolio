@@ -40,7 +40,11 @@ const BlogPost: React.FC = (props) => {
           {currentPost.meta.subtitle}
         </p>
         <hr className={"w-full mt-4"} />
-        <div className={"pb-4 md:pb-8 prose lg:prose-lg max-w-full mt-12"}>
+        <div
+          className={
+            "pb-4 md:pb-8 prose-sm md:prose-base lg:prose-lg max-w-full mt-12"
+          }
+        >
           {currentPost?.content}
         </div>
       </Card>

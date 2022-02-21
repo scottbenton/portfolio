@@ -4,10 +4,12 @@ import clsx from "clsx";
 
 export interface LayoutProps {
   className?: string;
+  title?: string;
+  subtitle?: string;
 }
 
 export const Layout: React.FC<LayoutProps> = (props) => {
-  const { children, className } = props;
+  const { children, className, title, subtitle } = props;
   return (
     <>
       <PageTransition
@@ -16,6 +18,10 @@ export const Layout: React.FC<LayoutProps> = (props) => {
           className
         )}
       >
+        {title && <h1>{title}</h1>}
+        {subtitle && (
+          <div className={"text-cyan-200 text-lg text-center"}>{subtitle}</div>
+        )}
         {children}
       </PageTransition>
     </>

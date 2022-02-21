@@ -18,7 +18,7 @@ export interface IBlogPost {
 const posts = [Welcome, Caching, NextJSPortfolio, AdventPerformance, Pomodoro];
 
 export const blogPosts: IBlogPost[] = posts
-  .map((Post) => ({
+  .map((Post: any) => ({
     meta: Post.meta,
     content: <Post.default />,
   }))

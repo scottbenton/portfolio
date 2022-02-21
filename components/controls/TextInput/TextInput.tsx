@@ -72,10 +72,10 @@ export const TextInput: React.FC<TextInputProps> = (props) => {
           isFocused
             ? error
               ? "border-red-600"
-              : "border-pink-400"
+              : "border-primary-600"
             : error
             ? "border-red-400"
-            : "border-primary-500"
+            : "border-gray-400"
         )}
       >
         {/* <div

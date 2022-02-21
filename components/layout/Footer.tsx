@@ -38,6 +38,9 @@ export const Footer: React.FC = (props) => {
             const Icon = page.icon;
 
             const selected = page.path === currentPath;
+
+            if (!Icon) return;
+
             return (
               <Link href={page.path} key={index}>
                 <a

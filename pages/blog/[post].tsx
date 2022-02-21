@@ -2,6 +2,8 @@ import React from "react";
 import { useRouter } from "next/router";
 import { blogPosts } from "content/blog";
 import { dateToLongString } from "helpers/time-helpers";
+import { Layout } from "components/layout/Layout";
+import { Card } from "components/Card";
 
 const BlogPost: React.FC = (props) => {
   const router = useRouter();
@@ -14,10 +16,10 @@ const BlogPost: React.FC = (props) => {
   }
 
   return (
-    <>
-      <div
+    <Layout>
+      <Card
         className={
-          "flex flex-col items-center px-4 w-full mx-auto max-w-3xl mt-4 md:mt-8"
+          "flex flex-col items-center p-4 md:p-8 w-full mx-auto max-w-screen-md rounded-none md:rounded-md"
         }
       >
         <p
@@ -41,8 +43,8 @@ const BlogPost: React.FC = (props) => {
         <div className={"pb-4 md:pb-8 prose lg:prose-lg max-w-full mt-12"}>
           {currentPost?.content}
         </div>
-      </div>
-    </>
+      </Card>
+    </Layout>
   );
 };
 

@@ -89,42 +89,28 @@ export const ContactForm: React.FC = (props) => {
     }
   };
 
-  const Container = ({ children }) => (
-    <div
-      className={
-        "bg-primary-700 w-full max-w-screen-sm p-4 text-white rounded-xl my-6"
-      }
-    >
-      {children}
-    </div>
-  );
-
   if (emailSendStatus === EMAIL_STATUSES.SUCCESS) {
     return (
-      <Container>
-        <h2>Message Sent</h2>
-        <span className={"text-primary-200 font-semibold tracking-wide"}>
+      <>
+        <h3>Message Sent</h3>
+        <p className={"text-gray-500 font-semibold tracking-wide"}>
           Your message has been sent. I'll get back to you shortly!
-        </span>
-      </Container>
+        </p>
+      </>
     );
   } else if (emailSendStatus === EMAIL_STATUSES.FAILURE) {
     return (
-      <Container>
-        <h2>Error Sending Message</h2>
-        <span className={"text-primary-200 font-semibold tracking-wide"}>
+      <>
+        <h3>Error Sending Message</h3>
+        <p className={"text-gray-500 font-semibold tracking-wide"}>
           An error was encountered while sending your message. You can still
           reach me at scott@scottbenton.dev.
-        </span>
-      </Container>
+        </p>
+      </>
     );
   } else {
     return (
-      <Container>
-        <h2>Send Me a Message</h2>
-        <span className={"text-primary-200 font-semibold tracking-wide"}>
-          I'll get back to you shortly!
-        </span>
+      <>
         <form onSubmit={onSubmit}>
           <TextInput
             id={"name"}
@@ -148,7 +134,7 @@ export const ContactForm: React.FC = (props) => {
           <div className={"flex justify-end"}>
             <button
               className={clsx(
-                "btn btn-filled text-primary-700 bg-white focus:border-2 focus:border-primary-700  btn-animate",
+                "btn btn-filled btn-filled-primary btn-animate bg-primary-600",
                 emailSendStatus === EMAIL_STATUSES.LOADING
                   ? "bg-gray-400 text-gray-900 cursor-wait"
                   : ""
@@ -160,7 +146,7 @@ export const ContactForm: React.FC = (props) => {
             </button>
           </div>
         </form>
-      </Container>
+      </>
     );
   }
 };

@@ -6,7 +6,7 @@ import ContactIcon from "@heroicons/react/solid/MailIcon";
 interface pageConfig {
   [key: string]: {
     label: string;
-    icon: React.ComponentType<any>;
+    icon?: React.ComponentType<any>;
     path: string;
   };
 }

@@ -1,18 +1,53 @@
-import React, { FormEvent } from "react";
+import React from "react";
 import ContactMe from "content/ContactMe.md";
-import { TextInput, TextArea } from "components/controls/TextInput";
-import clsx from "clsx";
 import { ContactForm } from "components/ContactForm";
-
+import { Layout } from "components/layout/Layout";
+import { Card } from "components/Card";
+import MailIcon from "@heroicons/react/solid/MailIcon";
+import CopyIcon from "@heroicons/react/solid/ClipboardCopyIcon";
 const Contact: React.FC = (props) => {
   return (
-    <>
+    <Layout>
       <h1>Contact Me</h1>
-      <div className={"px-4 max-w-screen-sm mx-auto"}>
-        <ContactMe />
+      <div className={"text-cyan-200 text-lg"}>
+        I'll get back to you shortly
       </div>
-      <ContactForm />
-    </>
+      <Card className={"w-full max-w-screen-sm mx-aut px-4 mt-4"}>
+        <h2>Email Me</h2>
+
+        <div className={"mt-2"}>
+          <div
+            className={
+              "bg-primary-700 text-white rounded-lg p-4 inline-flex items-center"
+            }
+          >
+            <div className={"p-2 bg-primary-200 text-primary-800 rounded-full"}>
+              <MailIcon className={"w-5 h-5"} />
+            </div>
+            <a
+              href={"mailto:scott@scottbenton.dev"}
+              className={"font-semibold hover:underline ml-4 mr-2"}
+            >
+              scott@scottbenton.dev
+            </a>
+          </div>
+        </div>
+
+        <div className={"flex items-center my-4"}>
+          <hr className={"flex-grow"} />
+          <span
+            className={
+              "w-10 h-10 flex items-center justify-center bg-primary-200 rounded-full mx-4 uppercase text-primary-700 font-semibold"
+            }
+          >
+            Or
+          </span>
+          <hr className={"flex-grow"} />
+        </div>
+        <h2>Send a Message</h2>
+        <ContactForm />
+      </Card>
+    </Layout>
   );
 };
 

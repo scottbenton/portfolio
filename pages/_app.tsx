@@ -1,21 +1,14 @@
 import "styles/globals.css";
 import clsx from "clsx";
-import { Header, Footer, Content } from "components/layout/";
+import { Header, Footer } from "components/layout/";
 import "@fontsource/comfortaa/variable.css";
 import "@fontsource/inter/variable.css";
-import { useRouter } from "next/router";
 import Head from "next/head";
+import { AppProps } from "next/app";
+import { AnimatePresence } from "framer-motion";
 
-interface MyAppProps {
-  Component: new () => React.Component<any>;
-  pageProps: Object;
-}
-
-const MyApp: React.FC<MyAppProps> = (props) => {
-  const { Component, pageProps } = props;
-
-  const router = useRouter();
-  const whiteBackground = ["/blog/[post]", "/"].includes(router.pathname);
+const MyApp: React.FC<AppProps> = (props) => {
+  const { Component, pageProps, router } = props;
 
   return (
     <>
@@ -34,14 +27,13 @@ const MyApp: React.FC<MyAppProps> = (props) => {
       </Head>
       <div
         className={clsx(
-          "antialiased font-body text-gray-800 flex flex-col min-h-screen",
-          whiteBackground ? "bg-white" : "bg-gray-200"
+          "antialiased font-body text-white flex flex-col min-h-screen bg-primary-700"
         )}
       >
         <Header />
-        <Content>
-          <Component {...pageProps} />
-        </Content>
+        <AnimatePresence exitBeforeEnter={true} initial={false}>
+          <Component key={router.pathname} {...pageProps} />
+        </AnimatePresence>
         <Footer />
       </div>
     </>

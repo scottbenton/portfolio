@@ -19,8 +19,9 @@ module.exports = {
       },
       colors: {
         gray: colors.slate,
-        primary: colors.violet,
+        primary: colors.indigo,
       },
+      animation: { "spin-slow": "spin 30s linear infinite" },
     },
   },
   content: ["./{components,content,pages}/**/*.{js,mdx,ts,tsx,jsx}"],

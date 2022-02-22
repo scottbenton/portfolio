@@ -54,7 +54,7 @@ export function Header() {
             <Link href={"/"}>
               <a
                 className={
-                  "text-white font-semibold text-xl cursor-pointer hover:underline"
+                  "text-white font-semibold text-xl cursor-pointer hover:underline focus:underline focus:outline-none"
                 }
               >
                 Scott Benton
@@ -67,7 +67,12 @@ export function Header() {
           >
             {Object.values(PAGES).map((page, index) => (
               <Link key={index} href={page.path}>
-                <a className={clsx(getClasses(page.path), "hover:underline")}>
+                <a
+                  className={clsx(
+                    getClasses(page.path),
+                    "hover:underline focus:underline focus:outline-none"
+                  )}
+                >
                   {page.label}
                 </a>
               </Link>

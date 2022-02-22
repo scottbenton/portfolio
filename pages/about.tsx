@@ -12,7 +12,7 @@ const About: React.FC = () => {
         </div>
         <a
           className={
-            "bg-primary-700 text-white font-bold tracking-wider uppercase shadow px-6 py-4 transition-all transform hover:shadow-md hover:scale-105 duration-300 ease-in-out rounded-lg cursor-pointer mt-8 text-center"
+            "btn btn-filled btn-filled-primary btn-animate w-full py-5 text-lg mt-4"
           }
           href={"/scottbenton.pdf"}
           target={"__blank"}

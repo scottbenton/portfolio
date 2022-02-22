@@ -35,7 +35,7 @@ const Home: React.FC = () => {
             <Link href={"/projects"}>
               <a
                 className={
-                  "btn btn-animate btn-filled-white mt-8 w-full text-xl py-4"
+                  "btn btn-animate btn-filled-white btn-filled mt-8 w-full text-xl py-4"
                 }
               >
                 View My Work

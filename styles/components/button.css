@@ -2,7 +2,7 @@
   @apply flex items-center justify-center px-4 py-2 font-bold tracking-wider text-center uppercase rounded-lg;
 }
 .btn:focus {
-  @apply outline-none;
+  @apply outline-none ring-4 ring-primary-300;
 }
 .btn-animate {
   @apply transition-all duration-300 ease-in-out transform;
@@ -23,9 +23,6 @@
 
 .btn-filled-white {
   @apply text-primary-700 bg-white;
-}
-.btn-filled-white:focus {
-  @apply border-2 border-primary-700;
 }
 .btn-filled-primary {
   @apply text-white bg-primary-700;

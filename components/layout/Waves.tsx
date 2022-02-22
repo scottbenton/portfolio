@@ -29,7 +29,7 @@ export const Waves: React.FC<WavesProps> = (props) => {
       className={"absolute inset-0"}
     >
       <div
-        key="waves"
+        key="wave"
         className="wave motion-reduce:after:animate-none motion-reduce:before:animate-none motion-reduce:before:rotate-12 motion-reduce:after:rotate-12"
       />
     </motion.div>

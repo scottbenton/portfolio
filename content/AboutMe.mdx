@@ -1,11 +1,14 @@
 import { TechnologyList } from "components/TechnologyList";
+import ProfilePic from "./profile.jpg";
+import Image from "next/image";
 
-<img
-  src={"/images/profile.jpg"}
-  alt={"Scott Benton in a Drum Corps Uniform"}
-  style={{ margin: 0, marginLeft: 12 }}
-  className={"rounded-xl w-40 float-right"}
-/>
+<div className={"w-40 pl-3 float-right pt-4"}>
+  <Image
+    src={ProfilePic}
+    alt={"Scott Benton in a marching uniform playing trumpet"}
+    className={"rounded-xl"}
+  />
+</div>
 
 Hello, I'm Scott Benton, a Software Developer living in Ithaca, New York.
 In 2019, I graduated from the University of Delaware with a bachelor's degree in Computer Science.

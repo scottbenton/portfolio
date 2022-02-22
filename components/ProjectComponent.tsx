@@ -1,5 +1,5 @@
 import React from "react";
-import clsx from "clsx";
+import Image from "next/image";
 import { ProjectConfig } from "content/projects";
 import { TechnologyList } from "./TechnologyList";
 import { Card } from "./Card";
@@ -14,7 +14,7 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = (props) => {
   const {
     name,
     description,
-    imageUrl,
+    image,
     altText,
     technologies,
     prodLink,
@@ -24,7 +24,7 @@ export const ProjectComponent: React.FC<ProjectComponentProps> = (props) => {
   return (
     <Card className={"p-0 overflow-hidden"}>
       <h2 className={"px-4 py-3 text-xl"}>{name}</h2>
-      <img src={imageUrl} className={"w-full"} alt={altText} />
+      <Image src={image} alt={altText} />
       <div className={"p-4 mt-1 flex flex-col flex-grow"}>
         <div className={"flex-grow"}>{description}</div>
         {technologies && (

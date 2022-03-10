@@ -54,7 +54,7 @@ export function Header() {
             <Link href={"/"}>
               <a
                 className={
-                  "text-white font-semibold text-xl cursor-pointer hover:underline focus:underline focus:outline-none"
+                  "text-white font-semibold text-xl cursor-pointer hover:underline focus:underline focus:outline-none font-display"
                 }
               >
                 Scott Benton

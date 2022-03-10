@@ -14,6 +14,7 @@ const nextConfig = withMDX({
     locales: ["en"],
     defaultLocale: "en",
   },
+  compress: true,
 });
 
 export default nextConfig;

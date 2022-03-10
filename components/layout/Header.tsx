@@ -32,18 +32,18 @@ export function Header() {
   return (
     <header className={clsx("z-10 hidden md:flex h-16 w-full items-center")}>
       {isHomePage ? (
-        <motion.nav
-          layoutId={"nav"}
-          className={"flex items-center flex-grow justify-center px-8"}
-        >
+        <nav className={"flex items-center flex-grow justify-center px-8"}>
           {Object.values(PAGES).map((page, index) => (
             <Link key={index} href={page.path}>
-              <a className={clsx(getClasses(page.path), "hover:underline")}>
+              <motion.a
+                className={clsx(getClasses(page.path), "hover:underline")}
+                layoutId={`link-${page.path}`}
+              >
                 {page.label}
-              </a>
+              </motion.a>
             </Link>
           ))}
-        </motion.nav>
+        </nav>
       ) : (
         <div
           className={
@@ -61,23 +61,21 @@ export function Header() {
               </a>
             </Link>
           )}
-          <motion.nav
-            layoutId={"nav"}
-            className={"flex items-center justify-center"}
-          >
+          <nav className={"flex items-center justify-center"}>
             {Object.values(PAGES).map((page, index) => (
               <Link key={index} href={page.path}>
-                <a
+                <motion.a
+                  layoutId={`link-${page.path}`}
                   className={clsx(
                     getClasses(page.path),
                     "hover:underline focus:underline focus:outline-none"
                   )}
                 >
                   {page.label}
-                </a>
+                </motion.a>
               </Link>
             ))}
-          </motion.nav>
+          </nav>
         </div>
       )}
     </header>

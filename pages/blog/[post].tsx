@@ -16,7 +16,7 @@ const BlogPost: React.FC = (props) => {
   }
 
   return (
-    <Layout>
+    <Layout seoProps={{title: currentPost.meta.title}}>
       <Card
         className={
           "flex flex-col items-center p-4 md:p-8 w-full mx-auto max-w-screen-md rounded-none md:rounded-md"

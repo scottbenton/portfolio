@@ -10,7 +10,7 @@ export const Footer: React.FC = (props) => {
   const router = useRouter();
   const currentPath = router.pathname;
 
-  const navRef = useRef<HTMLElement>();
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleHeightChange = () => {
@@ -38,6 +38,9 @@ export const Footer: React.FC = (props) => {
             const Icon = page.icon;
 
             const selected = page.path === currentPath;
+
+            if (!Icon) return;
+
             return (
               <Link href={page.path} key={index}>
                 <a
@@ -48,13 +51,13 @@ export const Footer: React.FC = (props) => {
                   <Icon
                     className={clsx(
                       "w-6 h-6 fill-current transition-all duration-300 ease-in-out transform",
-                      selected ? "text-purple-600 scale-125" : "text-gray-600"
+                      selected ? "text-primary-600 scale-125" : "text-gray-600"
                     )}
                   />
                   <span
                     className={clsx(
                       "text-xs uppercase font-bold tracking-widest transition-all duration-300 ease-in-out transform",
-                      selected ? "text-purple-700" : "text-gray-700"
+                      selected ? "text-primary-700" : "text-gray-700"
                     )}
                   >
                     {page.label}

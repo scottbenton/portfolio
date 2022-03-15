@@ -1,8 +1,8 @@
 import mailgun from "mailgun-js";
 import { NextApiRequest, NextApiResponse } from "next";
 
-const apiKey = process.env.MAILGUN_API_KEY;
-const domain = process.env.MAILGUN_DOMAIN;
+const apiKey = process.env.MAILGUN_API_KEY ?? "";
+const domain = process.env.MAILGUN_DOMAIN ?? "";
 
 const email = mailgun({ apiKey, domain });
 

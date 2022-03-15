@@ -1,0 +1,22 @@
+.wave {
+  @apply relative w-full h-full overflow-hidden;
+}
+
+.wave::before,
+.wave::after {
+  min-width: 400vw;
+  min-height: 400vw;
+  left: -150%;
+  bottom: 45%;
+  @apply absolute flex items-center justify-center animate-spin-slow;
+  content: "";
+}
+
+.wave::before {
+  border-radius: 45%;
+  @apply bg-primary-500;
+}
+.wave::after {
+  border-radius: 47%;
+  @apply bg-white;
+}

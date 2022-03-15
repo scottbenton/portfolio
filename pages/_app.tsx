@@ -1,48 +1,45 @@
-import "@/styles/globals.css";
+import "styles/globals.css";
 import clsx from "clsx";
-import { Header, Footer, Content } from "@/components/layout/";
-import "typeface-comfortaa";
-import "typeface-roboto";
-import { useRouter } from "next/router";
-import Head from "next/head";
+import { Header, Footer } from "components/layout/";
+import "@fontsource/comfortaa/variable.css";
+import "@fontsource/inter/variable.css";
+import { AppProps } from "next/app";
+import { AnimatePresence } from "framer-motion";
+import { DefaultSeo } from "next-seo";
 
-interface MyAppProps {
-  Component: new () => React.Component<any>;
-  pageProps: Object;
-}
-
-const MyApp: React.FC<MyAppProps> = (props) => {
-  const { Component, pageProps } = props;
-
-  const router = useRouter();
-  const whiteBackground = router.pathname === "/blog/[post]";
-  console.debug(whiteBackground);
+const MyApp: React.FC<AppProps> = (props) => {
+  const { Component, pageProps, router } = props;
 
   return (
     <>
-      <Head>
-        <title>Scott Benton</title>
-        <meta
-          name="description"
-          content="Software Developer and Web Developer in Ithaca New York"
-        />
-        <meta
-          name="keywords"
-          content="Software, Web, Developer, Website, Ithaca"
-        />
-        <meta name="author" content="Scott Benton" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
-      </Head>
+      <DefaultSeo
+        defaultTitle={"Scott Benton"}
+        titleTemplate={"Scott Benton | %s"}
+        description={"Software Developer and Web Developer in Ithaca New York"}
+        additionalMetaTags={[
+          {
+            property: "keywords",
+            content: "Software, Web, Developer, Website, Ithaca",
+          },
+          {
+            property: "author",
+            content: "Scott Benton",
+          },
+        ]}
+        additionalLinkTags={[{
+          rel: "icon",
+          href: "/favicon.png"
+        }]}
+      />
       <div
         className={clsx(
-          "antialiased font-body text-gray-900 flex flex-col min-h-screen",
-          whiteBackground ? "bg-white" : "bg-gray-200"
+          "antialiased font-body text-white flex flex-col min-h-screen bg-primary-700"
         )}
       >
         <Header />
-        <Content>
-          <Component {...pageProps} />
-        </Content>
+        <AnimatePresence exitBeforeEnter={true} initial={false}>
+          <Component key={router.pathname} {...pageProps} />
+        </AnimatePresence>
         <Footer />
       </div>
     </>

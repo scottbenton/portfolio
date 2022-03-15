@@ -1,8 +1,10 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   theme: {
     fontFamily: {
-      display: ["Comfortaa", "sans-serif"],
-      body: ["Roboto", "sans-serif"],
+      display: ["ComfortaaVariable", "sans-serif"],
+      body: ["InterVariable", "sans-serif"],
     },
     extend: {
       spacing: {
@@ -15,10 +17,13 @@ module.exports = {
         "1/3": "33%",
         "2/3": "67%",
       },
+      colors: {
+        gray: colors.slate,
+        primary: colors.indigo,
+      },
+      animation: { "spin-slow": "spin 30s linear infinite" },
     },
   },
-  purge: {
-    content: ["./{components,content,pages}/**/*.{js,mdx,ts,tsx,jsx}"],
-  },
+  content: ["./{components,content,pages}/**/*.{js,mdx,ts,tsx,jsx}"],
   plugins: [require("@tailwindcss/typography")],
 };

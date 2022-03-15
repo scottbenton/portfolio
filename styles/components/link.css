@@ -1,15 +1,12 @@
 .link {
-  @apply flex items-center justify-center flex-grow h-full px-6 font-bold tracking-widest uppercase;
+  @apply flex items-center justify-center flex-grow h-full px-6 font-bold tracking-widest uppercase text-gray-600;
 }
 .link:hover {
-  @apply text-white transition-all duration-200 ease-in-out bg-purple-700;
+  @apply text-primary-800 transition-all duration-200 ease-in-out bg-primary-200;
 }
 .link:focus {
-  @apply text-purple-700 border-b-4 border-purple-700 outline-none;
-}
-.link:focus:hover {
-  @apply text-white;
+  @apply text-primary-700 border-b-4 border-primary-700 outline-none;
 }
 .link-selected {
-  @apply text-purple-700 border-b-4 border-purple-700;
+  @apply text-primary-800 border-b-4 border-primary-500;
 }

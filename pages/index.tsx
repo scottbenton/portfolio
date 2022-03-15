@@ -1,77 +1,59 @@
-import Head from "next/head";
+import MapPin from "@heroicons/react/solid/LocationMarkerIcon";
+import { Layout } from "components/layout/Layout";
+import { Waves } from "components/layout/Waves";
 import Link from "next/link";
-import MapMarker from "mdi-react/MapMarkerIcon";
-import { SvgWave } from "@/components/SvgWave";
+
 const Home: React.FC = () => {
-    return (
-        <>
-            <div
+  return (
+    <>
+      <Waves />
+      <Layout>
+        <div className="relative flex-1 flex justify-center pt-10 w-full max-w-screen-xl mx-auto p-4">
+          <div className={"flex flex-col items-center"}>
+            <h1 className={"text-5xl text-gray-800"}>Scott Benton</h1>
+            <h2 className={"text-3xl text-primary-500 mt-4"}>
+              Software Developer
+            </h2>
+            <div>
+              <span
                 className={
-                    "w-full px-2 md:px-8 flex flex-col justify-center items-center md:items-start mt-8 md:mt-24 text-center md:text-left"
+                  "py-1 px-3 mt-4 bg-primary-200 inline-flex rounded-full text-primary-700 text-xl items-center"
                 }
-            >
-                <h1
-                    className={
-                        "text-3xl md:text-4xl font-display leading-tight tracking-tight"
-                    }
-                >
-                    Software Developer
-                </h1>
-                <div className={"flex items-center mt-4"}>
-                    <MapMarker
-                        className={"w-8 h-8 text-gray-600 stroke-current"}
-                    />
-                    <span
-                        className={
-                            "text-2xl ml-1 text-gray-800 tracking-wide font-display font-semibold"
-                        }
-                    >
-                        Ithaca, NY
-                    </span>
-                </div>
+              >
+                <MapPin className={"w-5 h-5 text-primary-500 mr-2"} />
+                Ithaca, NY
+              </span>
             </div>
-            <div className={"relative h-24 md:h-48 mt-8 md:mt-12 w-screen"}>
-                <SvgWave className={"text-purple-600"} />
-                <img
-                    src={"/images/transparentProfile.png"}
-                    alt={"Picture of Scott Benton"}
-                    className={
-                        "hidden md:inline h-96 absolute right-0 bottom-0 md:mb-12 mr-1/4"
-                    }
-                />
-                <SvgWave className={"text-purple-700 mt-6 md:mt-12"} />
-                <SvgWave
-                    className={"text-purple-800 mt-12 md:mt-24 relative"}
-                />
-            </div>
-            <div
+          </div>
+        </div>
+        <div
+          className={
+            "relative flex-1 py-2 flex flex-col items-center justify-center w-full"
+          }
+        >
+          <div className={"max-w-xs w-full"}>
+            <Link href={"/projects"}>
+              <a
                 className={
-                    "bg-purple-800 flex-grow flex items-center justify-center w-screen"
+                  "btn btn-animate btn-filled-white btn-filled mt-8 w-full text-xl py-4"
                 }
-            >
-                <div className={"mx-auto w-full max-w-xs px-4 pt-8"}>
-                    <Link href="/projects">
-                        <a
-                            className={
-                                "btn btn-filled btn-filled-white btn-animate text-xl md:text-2xl py-2 md:py-3 w-full"
-                            }
-                        >
-                            View my Work
-                        </a>
-                    </Link>
-                    <Link href="/contact">
-                        <a
-                            className={
-                                "btn btn-outlined btn-outlined-white btn-animate text-xl md:text-2xl py-2 md:py-3 w-full mt-4"
-                                // "mt-4 text-xl md:text-2xl border-white border py-2 md:py-3 w-full flex items-center justify-center rounded-md font-bold uppercase tracking-wider text-white hover:scale-105 transform transition-transform duration-300 ease-in-out text-center"
-                            }
-                        >
-                            Contact Me
-                        </a>
-                    </Link>
-                </div>
-            </div>
-        </>
-    );
+              >
+                View My Work
+              </a>
+            </Link>
+            <Link href={"/contact"}>
+              <a
+                className={
+                  "btn btn-animate btn-outlined btn-outlined-white mt-4 w-full text-xl py-4"
+                }
+              >
+                Get in Touch
+              </a>
+            </Link>
+          </div>
+        </div>
+      </Layout>
+    </>
+  );
 };
 export default Home;

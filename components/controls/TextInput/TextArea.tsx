@@ -49,15 +49,16 @@ export const TextArea: React.FC<TextAreaProps> = (props) => {
           isFocused
             ? error
               ? "border-red-600"
-              : "border-pink-400"
+              : "border-primary-600"
             : error
             ? "border-red-400"
-            : "border-purple-500"
+            : "border-gray-400"
         )}
       >
         <textarea
           className={"input"}
           data-testid={descriptiveID}
+          id={descriptiveID}
           autoComplete={"no"}
           onFocus={handleFocus}
           onBlur={handleBlur}

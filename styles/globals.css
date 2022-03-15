@@ -1,12 +1,8 @@
-@import "./components.css";
-
 html,
 body {
   @apply h-full;
 }
 @tailwind base;
-
-@tailwind components;
 
 h1 {
   @apply mt-4 text-3xl font-semibold tracking-tight font-display;
@@ -31,3 +27,8 @@ p {
 }
 
 @tailwind utilities;
+@tailwind components;
+
+@layer components {
+  @import "./components.css";
+}

@@ -1,12 +1,12 @@
-import AboutIcon from "mdi-react/AccountCircleIcon";
-import ProjectsIcon from "mdi-react/CodeTagsIcon";
-import BlogIcon from "mdi-react/PostIcon";
-import ContactIcon from "mdi-react/MessageIcon";
+import AboutIcon from "@heroicons/react/solid/UserCircleIcon";
+import ProjectsIcon from "@heroicons/react/solid/CodeIcon";
+import BlogIcon from "@heroicons/react/solid/NewspaperIcon";
+import ContactIcon from "@heroicons/react/solid/MailIcon";
 
 interface pageConfig {
   [key: string]: {
     label: string;
-    icon: React.ComponentType<any>;
+    icon?: React.ComponentType<any>;
     path: string;
   };
 }

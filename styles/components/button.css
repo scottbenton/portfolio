@@ -1,8 +1,8 @@
 .btn {
-  @apply flex items-center justify-center px-4 py-2 font-bold tracking-wider text-center uppercase rounded-md;
+  @apply flex items-center justify-center px-4 py-2 font-bold tracking-wider text-center uppercase rounded-lg;
 }
 .btn:focus {
-  @apply outline-none;
+  @apply outline-none ring-4 ring-primary-300;
 }
 .btn-animate {
   @apply transition-all duration-300 ease-in-out transform;
@@ -22,13 +22,10 @@
 }
 
 .btn-filled-white {
-  @apply text-purple-700 bg-white;
+  @apply text-primary-700 bg-white;
 }
-.btn-filled-white:focus {
-  @apply border-2 border-purple-700;
-}
-.btn-filled-purple {
-  @apply text-white bg-purple-700;
+.btn-filled-primary {
+  @apply text-white bg-primary-700;
 }
 
 .btn-outlined {
@@ -39,6 +36,6 @@
   @apply text-white border-white;
 }
 
-.btn-outlined-purple {
-  @apply text-purple-700 border-purple-700;
+.btn-outlined-primary {
+  @apply text-primary-700 border-primary-700;
 }

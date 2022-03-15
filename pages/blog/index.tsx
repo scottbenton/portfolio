@@ -1,17 +1,16 @@
 import React from "react";
 import { blogPosts } from "content/blog";
-import { Card } from "@/components/Card";
-import { Chip } from "@/components/Chip";
-import { dateToLongString } from "@/helpers/time-helpers";
+import { Card } from "components/Card";
+import { dateToLongString } from "helpers/time-helpers";
 import { TechnologyList } from "../../components/TechnologyList";
+import { Layout } from "components/layout/Layout";
 
 const Blog: React.FC = () => {
   return (
-    <>
-      <h1>Blog Posts</h1>
-      <span className={"text-lg text-gray-700"}>
-        Posts about things I've learned or built
-      </span>
+    <Layout
+      title={"Blog Posts"}
+      subtitle={"Posts about things I've learned or built"}
+    >
       <div className={"px-4 w-full max-w-2xl pb-4"}>
         {blogPosts.map((post, index) => (
           <Card
@@ -38,7 +37,7 @@ const Blog: React.FC = () => {
           </Card>
         ))}
       </div>
-    </>
+    </Layout>
   );
 };
 

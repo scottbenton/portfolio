@@ -78,18 +78,6 @@ export const TextInput: React.FC<TextInputProps> = (props) => {
             : "border-gray-400"
         )}
       >
-        {/* <div
-          className={clsx(
-            "overflow-hidden border w-full rounded-lg flex",
-            isFocused
-              ? error
-                ? "border-red-600"
-                : "border-primary"
-              : error
-              ? "border-red-400"
-              : ""
-          )}
-        > */}
         {startAdornment}
         <input
           className={"input"}

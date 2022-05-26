@@ -11,7 +11,7 @@ const Blog: React.FC = () => {
       title={"Blog Posts"}
       subtitle={"Posts about things I've learned or built"}
     >
-      <div className={"px-4 w-full max-w-2xl pb-4"}>
+      <div className={"md:px-4 w-full max-w-2xl pb-4"}>
         {blogPosts.map((post, index) => (
           <Card
             key={index}

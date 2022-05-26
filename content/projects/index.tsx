@@ -11,6 +11,7 @@ import PomodoroImage from "./images/pomodoro.jpeg";
 
 export interface ProjectConfig {
   name: string;
+  subTitle?: string;
   image: StaticImageData;
   altText: string;
   description: React.ReactNode;
@@ -21,7 +22,8 @@ export interface ProjectConfig {
 
 export const projects: ProjectConfig[] = [
   {
-    name: "Pomodoro Timer",
+    name: "Pomodoro",
+    subTitle: "Productivity Timer",
     image: PomodoroImage,
     altText: "Pomodoro Website Screenshot",
     description: <PomodoroContent />,
@@ -30,7 +32,8 @@ export const projects: ProjectConfig[] = [
     codeLink: "https://github.com/scottbenton/pomodoro",
   },
   {
-    name: "Dungeons & Dragons Notes",
+    name: "DnD Notes",
+    subTitle: "Dungeons and Dragons Campaign Notes",
     image: EberronImage,
     altText: "DnD Notes Website Screenshot",
     description: <EberronContent />,
@@ -40,6 +43,7 @@ export const projects: ProjectConfig[] = [
   },
   {
     name: "Pantry",
+    subTitle: "Organized Grocery Lists",
     image: PantryImage,
     altText: "Pantry Screenshot",
     description: <PantryContent />,
@@ -49,6 +53,7 @@ export const projects: ProjectConfig[] = [
   },
   {
     name: "ASORTD",
+    subTitle: "Algorithm Sorting Display",
     image: ASORTDImage,
     altText: "ASORTD Screenshot",
     description: <ASORTDContent />,
@@ -58,6 +63,7 @@ export const projects: ProjectConfig[] = [
   },
   {
     name: "Daddit",
+    subTitle: "Reddit Clone",
     image: DadditImage,
     altText: "Daddit Screenshot",
     description: <DadditContent />,

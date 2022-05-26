@@ -36,7 +36,10 @@ export function Header() {
           {Object.values(PAGES).map((page, index) => (
             <Link key={index} href={page.path}>
               <motion.a
-                className={clsx(getClasses(page.path), "hover:underline")}
+                className={clsx(
+                  getClasses(page.path),
+                  "hover:underline cursor-pointer"
+                )}
                 layoutId={`link-${page.path}`}
               >
                 {page.label}
@@ -68,7 +71,7 @@ export function Header() {
                   layoutId={`link-${page.path}`}
                   className={clsx(
                     getClasses(page.path),
-                    "hover:underline focus:underline focus:outline-none"
+                    "hover:underline focus:underline focus:outline-none cursor-pointer"
                   )}
                 >
                   {page.label}

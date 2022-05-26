@@ -3,5 +3,5 @@
 }
 
 .chip-primary {
-  @apply bg-primary-300 text-primary-900;
+  @apply bg-primary-200 text-primary-900;
 }

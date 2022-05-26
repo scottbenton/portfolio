@@ -15,9 +15,9 @@ export const Card: React.FC<CardProps> = (props) => {
       <Link href={href}>
         <a
           className={clsx(
-            "flex flex-col bg-white text-gray-800 shadow-md rounded-xl p-4",
+            "flex flex-col bg-white text-gray-800 shadow-md rounded-xl md:rounded-3xl p-4",
             className,
-            "focus:outline-none btn-animate cursor-pointer focus:ring-4 ring-primary-300 focus:shadow-xl hover:shadow-xl hover:scale-105 focus:scale-105 duration-300 ease-in-out text-left"
+            "focus:outline-none btn-animate cursor-pointer focus:ring-4 ring-primary-300 focus:shadow-xl hover:shadow-xl hover:scale-105 focus:scale-105 text-left"
           )}
         >
           {children}
@@ -28,7 +28,7 @@ export const Card: React.FC<CardProps> = (props) => {
     return (
       <div
         className={clsx(
-          "flex flex-col bg-white text-gray-800 shadow-md rounded-xl p-4",
+          "flex flex-col bg-white text-gray-800 shadow-md rounded-xl md:rounded-3xl p-4",
           className
         )}
       >

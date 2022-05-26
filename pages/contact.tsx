@@ -7,13 +7,13 @@ import MailIcon from "@heroicons/react/solid/MailIcon";
 const Contact: React.FC = (props) => {
   return (
     <Layout title={"Contact Me"} subtitle={"I'll get back to you shortly"}>
-      <Card className={"w-full max-w-screen-sm mx-aut px-4 mt-4"}>
+      <Card className={"w-full max-w-screen-sm mx-auto px-4 mt-4"}>
         <h2>Email Me</h2>
 
         <div className={"mt-2"}>
           <div
             className={
-              "bg-primary-700 text-white rounded-lg p-4 inline-flex items-center"
+              "bg-primary-700 text-white rounded-xl p-4 inline-flex items-center"
             }
           >
             <div className={"p-2 bg-primary-200 text-primary-800 rounded-full"}>

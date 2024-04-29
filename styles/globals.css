@@ -1,7 +1,8 @@
 html,
 body {
-  @apply h-full;
+  @apply h-full bg-gray-950 text-white;
 }
+
 @tailwind base;
 
 h1 {
@@ -31,4 +32,8 @@ p {
 
 @layer components {
   @import "./components.css";
+}
+
+.two-col-grid {
+  grid-template-columns: auto minmax(0, 1fr);
 }

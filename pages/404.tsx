@@ -14,14 +14,13 @@ const FourZeroFour: React.FC = (props) => {
         <p className={"text-2xl text-cyan-200 m-0 mt-2"}>
           This page could not be found.
         </p>
-        <Link href="/">
-          <a
-            className={
-              "btn btn-filled btn-animate text-xl btn-filled-white mt-4 px-8 py-4"
-            }
-          >
-            Return Home
-          </a>
+        <Link
+          href="/"
+          className={
+            "btn btn-filled btn-animate text-xl btn-filled-white mt-4 px-8 py-4"
+          }
+        >
+          Return Home
         </Link>
       </div>
     </Layout>

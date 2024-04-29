@@ -3,8 +3,8 @@ const colors = require("tailwindcss/colors");
 module.exports = {
   theme: {
     fontFamily: {
-      display: ["ComfortaaVariable", "sans-serif"],
-      body: ["InterVariable", "sans-serif"],
+      display: ["Quicksand Variable", "sans-serif"],
+      body: ["Inter Variable", "sans-serif"],
     },
     extend: {
       spacing: {
@@ -19,7 +19,7 @@ module.exports = {
       },
       colors: {
         gray: colors.slate,
-        primary: colors.indigo,
+        primary: colors.emerald,
       },
       animation: { "spin-slow": "spin 30s linear infinite" },
     },

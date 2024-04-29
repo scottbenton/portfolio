@@ -1,7 +1,6 @@
 import React from "react";
-import { PageTransition } from "./PageTransition";
+import { NextSeo, NextSeoProps } from "next-seo";
 import clsx from "clsx";
-import { NextSeo, NextSeoProps } from 'next-seo';
 
 export interface LayoutProps {
   className?: string;
@@ -11,22 +10,23 @@ export interface LayoutProps {
 }
 
 export const Layout: React.FC<LayoutProps> = (props) => {
-  const { children, className, title, subtitle, seoProps } = props;
+  const { children, title, subtitle, seoProps, className } = props;
   return (
     <>
       <NextSeo title={title} {...seoProps} />
-      <PageTransition
+      <div
         className={clsx(
-          "flex flex-col flex-grow items-center max-w-screen-xl mx-auto w-full pb-4",
+          "pt-10 py-4 px-4 md:px-8 pb-8 flex flex-col items-center",
           className
         )}
       >
-        {title && <h1>{title}</h1>}
+        {title && <h1 className={"m-0"}>{title}</h1>}
         {subtitle && (
-          <div className={"text-cyan-200 text-lg text-center"}>{subtitle}</div>
+          <h2 className={"text-primary-300 text-lg text-center"}>{subtitle}</h2>
         )}
+
         {children}
-      </PageTransition>
+      </div>
     </>
   );
 };

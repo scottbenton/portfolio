@@ -1,56 +1,111 @@
-import MapPin from "@heroicons/react/solid/LocationMarkerIcon";
+import MapPin from "@heroicons/react/20/solid/MapIcon";
+import { Button } from "components/controls/Button";
 import { Layout } from "components/layout/Layout";
-import { Waves } from "components/layout/Waves";
 import Link from "next/link";
+import AboutMeParagraph from "content/AboutMeParagraph.mdx";
+import { Experience } from "components/Experience";
+import { Projects } from "components/Projects";
+import { BlogPosts } from "components/BlogPosts";
+import LinkedInLogo from "content/LinkedInLogo.png";
+import EnvelopeIcon from "@heroicons/react/24/solid/EnvelopeIcon";
+import { IconTag } from "components/IconTag";
 
 const Home: React.FC = () => {
   return (
     <>
-      <Waves />
       <Layout>
-        <div className="relative flex-1 flex justify-center pt-10 w-full max-w-screen-xl mx-auto p-4">
-          <div className={"flex flex-col items-center"}>
-            <h1 className={"text-5xl text-gray-800"}>Scott Benton</h1>
-            <h2 className={"text-3xl text-primary-500 mt-4"}>
-              Software Developer
+        <div className="md:pt-4 w-full">
+          <section className={"grid grid-cols-1 md:grid-cols-2 gap-8"}>
+            <div>
+              <h1 className={"text-6xl font-bold  text-white m-0"}>
+                Scott Benton
+              </h1>
+              <h2
+                className={"text-white font-semibold text-2xl mt-2 uppercase"}
+              >
+                <span className={"text-primary-300"}>Creative</span> Software
+                Engineer
+              </h2>
+              <IconTag
+                Icon={MapPin}
+                label={"Philadelphia, PA"}
+                className={"mt-4"}
+              />
+            </div>
+            <div className={"indent-8"}>
+              <span className={"text-gray-300 max-w-prose"}>
+                <AboutMeParagraph />
+              </span>
+              <Button
+                className={"mt-3"}
+                component={"a"}
+                href={"/scottbenton.pdf"}
+                target={"__blank"}
+              >
+                View my Resumé
+              </Button>
+            </div>
+          </section>
+          <section className={"mt-24"}>
+            <h2 id={"experience"} className={"pt-24 -mt-24"}>
+              Experience
+            </h2>
+            <div className="grid two-col-grid gap-x-4 gap-y-6 mt-8">
+              <Experience />
+            </div>
+          </section>
+          <section className={"mt-24"}>
+            <h2 id={"projects"} className={"pt-24 -mt-24"}>
+              Projects
             </h2>
             <div>
-              <span
-                className={
-                  "py-1 px-3 mt-4 bg-primary-200 inline-flex rounded-full text-primary-700 text-xl items-center"
-                }
-              >
-                <MapPin className={"w-5 h-5 text-primary-500 mr-2"} />
-                Ithaca, NY
-              </span>
+              <Projects />
             </div>
-          </div>
-        </div>
-        <div
-          className={
-            "relative flex-1 py-2 flex flex-col items-center justify-center w-full"
-          }
-        >
-          <div className={"max-w-xs w-full"}>
-            <Link href={"/projects"}>
-              <a
+          </section>
+          <section className={"mt-24"}>
+            <div
+              className={
+                "flex flex-col sm:flex-row  space-x-4 items-baseline justify-between"
+              }
+            >
+              <h2 id={"blog"} className={"pt-24 -mt-24"}>
+                Most Recent Blog Post
+              </h2>
+              <Link
+                href={"/blog"}
                 className={
-                  "btn btn-animate btn-filled-white btn-filled mt-8 w-full text-xl py-4"
+                  "font-bold flex items-center text-lg text-primary-300 underline"
                 }
               >
-                View My Work
-              </a>
-            </Link>
-            <Link href={"/contact"}>
-              <a
-                className={
-                  "btn btn-animate btn-outlined btn-outlined-white mt-4 w-full text-xl py-4"
-                }
+                View All
+              </Link>
+            </div>
+            <div>
+              <BlogPosts />
+            </div>
+          </section>
+          <section className={"mt-24"}>
+            <h2 id={"contact"} className={"pt-24 -mt-24"}>
+              Contact Me
+            </h2>
+            <p className={"mt-4"}>
+              Please feel free to reach out to me with opportunities, questions,
+              or anything else!
+            </p>
+            <div className={"flex items-center mt-2"}>
+              <IconTag Icon={EnvelopeIcon} label={"scott@scottbenton.dev"} />
+              <Link
+                href={"https://www.linkedin.com/in/scott-m-benton"}
+                className={"cursor-pointer ml-8"}
               >
-                Get in Touch
-              </a>
-            </Link>
-          </div>
+                <img
+                  src={LinkedInLogo.src}
+                  alt="LinkedIn Logo"
+                  className="w-8 h-8"
+                />
+              </Link>
+            </div>
+          </section>
         </div>
       </Layout>
     </>

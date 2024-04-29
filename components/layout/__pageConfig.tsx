@@ -1,7 +1,7 @@
-import AboutIcon from "@heroicons/react/solid/UserCircleIcon";
-import ProjectsIcon from "@heroicons/react/solid/CodeIcon";
-import BlogIcon from "@heroicons/react/solid/NewspaperIcon";
-import ContactIcon from "@heroicons/react/solid/MailIcon";
+import AboutIcon from "@heroicons/react/24/solid/UserCircleIcon";
+import ProjectsIcon from "@heroicons/react/24/solid/CommandLineIcon";
+import BlogIcon from "@heroicons/react/24/solid/NewspaperIcon";
+import ContactIcon from "@heroicons/react/24/solid/EnvelopeIcon";
 
 interface pageConfig {
   [key: string]: {
@@ -13,14 +13,14 @@ interface pageConfig {
 
 export const PAGES: pageConfig = {
   about: {
-    label: "About",
+    label: "Experience",
     icon: AboutIcon,
-    path: "/about",
+    path: "/#experience",
   },
   projects: {
     label: "Projects",
     icon: ProjectsIcon,
-    path: "/projects",
+    path: "/#projects",
   },
   blog: {
     label: "Blog",
@@ -30,6 +30,6 @@ export const PAGES: pageConfig = {
   contact: {
     label: "Contact",
     icon: ContactIcon,
-    path: "/contact",
+    path: "/#contact",
   },
 };

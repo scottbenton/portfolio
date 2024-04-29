@@ -1,0 +1,34 @@
+[
+  {
+    "company": "Indeed",
+    "title": "Software Engineer",
+    "location": "Remote, United States",
+    "dates": "2022 - Present",
+    "description": "At Indeed, I build and maintain critical tools that allow large employers to organize their hiring teams. I work closely with cross-functional teams such as design and product management to deliver high-quality software that meets the needs of our customers.",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Storybook",
+      "Java",
+      "Spring Boot",
+      "GraphQL",
+      "SQL"
+    ]
+  },
+  {
+    "company": "InFlight / Skuid",
+    "title": "Software Developer",
+    "location": "Remote, United States",
+    "dates": "2021-2022",
+    "description": "At InFlight, I helped to modernize HR platforms by building custom, user friendly, accessible applications that integrated with existing HR systems. After our acquisition by Skuid, I continued supporting our companies largest client throughout the transition.",
+    "technologies": ["Angular", "TypeScript", "ASP.NET"]
+  },
+  {
+    "company": "WSFS Bank",
+    "title": "Software Developer Intern / Software Developer",
+    "location": "Wilmington, DE",
+    "dates": "2019-2021",
+    "description": "At WSFS, I worked on a team that built and maintained internal tools that supported different teams within the bank. I was responsible for building and designing new features, fixing bugs, and helping our department transition to React.",
+    "technologies": ["React", "Spring Boot", "REST", "SQL"]
+  }
+]

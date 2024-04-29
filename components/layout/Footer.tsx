@@ -42,27 +42,27 @@ export const Footer: React.FC = (props) => {
             if (!Icon) return;
 
             return (
-              <Link href={page.path} key={index}>
-                <a
-                  className={
-                    "flex flex-col justify-center items-center focus:outline-none flex-grow"
-                  }
+              <Link
+                href={page.path}
+                key={index}
+                className={
+                  "flex flex-col justify-center items-center focus:outline-none flex-grow"
+                }
+              >
+                <Icon
+                  className={clsx(
+                    "w-6 h-6 fill-current transition-all duration-300 ease-in-out transform",
+                    selected ? "text-primary-600 scale-125" : "text-gray-600"
+                  )}
+                />
+                <span
+                  className={clsx(
+                    "text-xs uppercase font-bold tracking-widest transition-all duration-300 ease-in-out transform",
+                    selected ? "text-primary-700" : "text-gray-700"
+                  )}
                 >
-                  <Icon
-                    className={clsx(
-                      "w-6 h-6 fill-current transition-all duration-300 ease-in-out transform",
-                      selected ? "text-primary-600 scale-125" : "text-gray-600"
-                    )}
-                  />
-                  <span
-                    className={clsx(
-                      "text-xs uppercase font-bold tracking-widest transition-all duration-300 ease-in-out transform",
-                      selected ? "text-primary-700" : "text-gray-700"
-                    )}
-                  >
-                    {page.label}
-                  </span>
-                </a>
+                  {page.label}
+                </span>
               </Link>
             );
           })}

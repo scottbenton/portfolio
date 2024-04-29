@@ -14,8 +14,8 @@ const Home: React.FC = () => {
   return (
     <>
       <Layout>
-        <div className="pt-4 w-full">
-          <section className={"grid grid-cols-1 md:grid-cols-2 gap-8 mt-4"}>
+        <div className="md:pt-4 w-full">
+          <section className={"grid grid-cols-1 md:grid-cols-2 gap-8"}>
             <div>
               <h1 className={"text-6xl font-bold  text-white m-0"}>
                 Scott Benton
@@ -63,14 +63,18 @@ const Home: React.FC = () => {
             </div>
           </section>
           <section className={"mt-24"}>
-            <div className={"flex items-baseline justify-between"}>
+            <div
+              className={
+                "flex flex-col sm:flex-row  space-x-4 items-baseline justify-between"
+              }
+            >
               <h2 id={"blog"} className={"pt-24 -mt-24"}>
                 Most Recent Blog Post
               </h2>
               <Link
                 href={"/blog"}
                 className={
-                  "ml-4 font-bold flex items-center text-lg text-primary-300 underline"
+                  "font-bold flex items-center text-lg text-primary-300 underline"
                 }
               >
                 View All

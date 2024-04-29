@@ -30,8 +30,8 @@ p {
 @tailwind utilities;
 @tailwind components;
 
-@layer components {
-  @import "./components.css";
+pre {
+  text-wrap: auto;
 }
 
 .two-col-grid {

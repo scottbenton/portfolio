@@ -9,7 +9,7 @@ export function Header() {
 
   const getClasses = (path: string) => {
     let classes =
-      "font-semibold text-center text-base transition-color duration-300 ease-in-out px-4";
+      "font-semibold text-center text-base transition-color duration-300 ease-in-out px-2 sm:px-4";
 
     if (router.pathname === path) {
       classes = clsx(classes, "underline", "text-white");
@@ -24,18 +24,18 @@ export function Header() {
     <>
       <header
         className={clsx(
-          "z-10 hidden md:flex h-16 w-full items-center fixed top-0 left-0 right-0 bg-gray-950"
+          "z-10 flex h-16 w-full items-center fixed top-0 left-0 right-0 bg-gray-950"
         )}
       >
         <div
           className={
-            "w-full flex items-center justify-between max-w-screen-lg mx-auto px-8"
+            "w-full flex items-center justify-center sm:justify-between max-w-screen-lg mx-auto px-4 md:px-8"
           }
         >
           <Link
             href={"/"}
             className={
-              "text-primary-600 font-semibold text-xl cursor-pointer hover:underline focus:underline focus:outline-none font-display"
+              "hidden sm:block text-primary-600 font-semibold text-xl cursor-pointer hover:underline focus:underline focus:outline-none font-display"
             }
           >
             <ScottBentonLogo />
@@ -50,7 +50,7 @@ export function Header() {
                   "hover:underline focus:underline focus:outline-none"
                 )}
               >
-                {page.label}{" "}
+                {page.label}
               </Link>
             ))}
           </nav>

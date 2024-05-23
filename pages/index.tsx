@@ -23,8 +23,7 @@ const Home: React.FC = () => {
               <h2
                 className={"text-white font-semibold text-2xl mt-2 uppercase"}
               >
-                <span className={"text-primary-300"}>Creative</span> Software
-                Engineer
+                <span className={"text-primary-300"}>Software Engineer</span>
               </h2>
               <IconTag
                 Icon={MapPin}
@@ -39,7 +38,7 @@ const Home: React.FC = () => {
               <Button
                 className={"mt-3"}
                 component={"a"}
-                href={"/scottbenton.pdf"}
+                href={"/ScottBentonResume.pdf"}
                 target={"__blank"}
               >
                 View my Resumé

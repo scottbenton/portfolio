@@ -32,7 +32,7 @@ const BlogPost: React.FC = (props) => {
       </h1>
       <p
         className={
-          "text-xl md:text-xl w-full mt-4 leading-snug tracking-wide text-gray-200"
+          "text-xl md:text-xl w-full mt-4 leading-snug tracking-wide text-primary-300"
         }
       >
         {currentPost.meta.subtitle}
@@ -40,7 +40,7 @@ const BlogPost: React.FC = (props) => {
       <hr className={"w-full mt-4"} />
       <div
         className={
-          "pb-4 md:pb-8 prose-sm md:prose-base lg:prose-lg max-w-full mt-12 text-gray-200"
+          "pb-4 md:pb-8 prose-sm md:prose-base lg:prose-lg max-w-full mt-12 prose-slate text-gray-200 prose-ul:list-disc prose-ol:list-decimal prose-a:underline prose-a:text-primary-300"
         }
       >
         {currentPost?.content}

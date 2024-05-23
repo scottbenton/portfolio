@@ -1,0 +1,90 @@
+export const meta = {
+  title: "Iron Fellowship and Crew Link 3.0.0",
+  subtitle: "The Homebrew Update",
+  datePosted: new Date(2024, 4, 23),
+  tags: ["Changelog", "Iron Fellowship", "Crew Link"],
+  url: "if-cl-3-release-notes",
+};
+
+Iron Fellowship and Crew Link version 3.0.0 is here!
+This update is focused around improving support for homebrew content, and paving the way for adding Sundered Isles support.
+A full [changelog](#changelog) is available below.
+
+[Visit Iron Fellowship](https://iron-fellowship.scottbenton.dev)
+
+[Visit Crew Link](https://starforged-crew-link.scottbenton.dev)
+
+## Using the new Homebrew System
+
+Instead of adding homebrew content in separate areas of the app, I've centralized it with the new homebrew library.
+This library allows you to create expansions to the base games, allowing you to group homebrew content such as new stats, condition meters, moves, oracles, assets, and more.
+These expansions can be shared with others, either directly or through campaigns if you are playing together.
+
+### Creating an Expansion
+
+To create a new homebrew expansion, navigate to the Homebrew Page, and click "Create a Collection". Give your collection a descriptive name, and click "Create Expansion".
+
+![Create a Collection](/assets/IF3/CreateCollection.png)
+
+### Adding Content to an Expansion
+
+After you have created your expansion, you should be able to open it up and begin adding content.
+Content can be added from the four main content tabs - Rules, Moves, Oracles, and Assets.
+
+In the rules tab, you can add new stats, condition meters, impacts, or legacy tracks.
+
+The moves, oracles, and assets tab all work fairly similarly.
+In each tab, you can create a new collection to group your content.
+These collections present three main ways of organizing your content.
+
+A collection can...
+
+1. be its own separate collection, containing all of the content you want to group together.
+2. enhance an existing collection, adding its contents to the existing collection.
+3. overwrite an existing collection, replacing all the contents within.
+
+Once you have created a collection, you can add content to it.
+This content can also replace existing content - for example, you can create a homebrew move that replaces the "Face Danger" move.
+
+### Enabling an Expansion
+
+Once you have created an expansion, you need to enable it for your characters and campaigns.
+
+If your character is _not_ in a campaign, or you are the GM of your campaign, you can enable the expansion from your character sheet by clicking on the character settings icon, and selecting "Expansions and Homebrew".
+If you are the GM of a campaign, you can also enable the expansion from the GM screen, under the "Settings" tab.
+
+![Create a Collection](/assets/IF3/EnableExpansion.png)
+
+### Sharing an Expansion
+
+If you are playing in a campaign, other players will automatically see the homebrew content on their character sheets.
+However, if you would like to invite other community members to read or help edit your homebrew, you can do that on the homebrew page.
+
+Viewers will be able to view and use your homebrew content in their own campaigns, but cannot make any changes to it.
+Editors, in addition to being able to view the content, can also make changes to it, so be careful when sharing your content!
+
+![Inviting Users](/assets/IF3/ExpansionInvite.png)
+
+## Changelog
+
+### Changes since the last major update
+
+- Changed the layout of the app on desktop to a side navigation layout to give more vertical space for the main content
+- Added a new homebrew library to the app, centralizing homebrew content and adding new abilities to create and share homebrew content
+- [Ironsworn] Added ability to add extra experience points past 30
+- Added the ability to delete rolls from the log (contributor: AnnB)
+- Added ability for GMs to remove other players and their characters from campaigns
+- Added the ability for users to view completed campaign & character tracks and clocks
+- Added missing rule for cancelling out the action die when your negative momentum matches your action die.
+
+### Bug Fixes
+
+- Fixed cursor issue on the notes page with mobile Safari
+- Fixed a performance issue that made switching tabs super slow
+- Fixed a few crashes that could occur when switching pages after the application updated in the background
+- Fixed an issue on the sectors page where saving would cause users to be kicked from the notes box
+- Fixed Ironsworn content being loaded on Crew Link, and vice versa, leading to faster load times
+
+## What's Next?
+
+I will be making some small tweaks, focused mostly around making campaigns a little less confusing while I wait for Sundered Isles content to become available.

@@ -14,9 +14,7 @@ const MyApp: React.FC<AppProps> = (props) => {
       <DefaultSeo
         defaultTitle={"Scott Benton"}
         titleTemplate={"Scott Benton | %s"}
-        description={
-          "Software Developer and Web Developer in Philadelphia Pennsylvania"
-        }
+        description={"Software Engineer in Philadelphia Pennsylvania"}
         additionalMetaTags={[
           {
             property: "keywords",

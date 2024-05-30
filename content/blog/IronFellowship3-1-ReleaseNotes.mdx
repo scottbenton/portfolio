@@ -1,0 +1,63 @@
+export const meta = {
+  title: "Iron Fellowship and Crew Link 3.1.0",
+  subtitle: "Campaign Types Update",
+  datePosted: new Date(2024, 4, 29),
+  tags: ["Changelog", "Iron Fellowship", "Crew Link"],
+  url: "if-cl-3-1-release-notes",
+};
+
+Iron Fellowship and Crew Link have been updated to version 3.1.
+This update is focused around improving the experience for players playing different types of Ironsworn and Starforged campaigns.
+A full [changelog](#changelog) is available below.
+
+[Visit Iron Fellowship](https://iron-fellowship.scottbenton.dev)
+
+[Visit Crew Link](https://starforged-crew-link.scottbenton.dev)
+
+## Campaign Types
+
+Whenever you create a campaign, you can now choose between three separate campaign types.
+
+1. Solo Campaigns: These campaigns are for a single player who plays more than one character.
+2. Co-op Campaigns: These campaigns are for multiple players, each playing a character with no guide.
+3. Guided Campaigns (default): These campaigns are for multiple players, with one player acting as a Game Master (or guide).
+
+Depending on which campaign type you choose, the app will adjust the experience to better suit your needs.
+For example, co-op campaigns will automatically grant each new player full access to a setting shared in the campaign, while guided campaigns will only allow the guide to have such access.
+Co-op and solo campaigns will also no longer see text that is only relevant for GMs in guided campaigns.
+
+You can change the campaign type at any time from the campaign page by clicking the settings icon and selecting "Edit Campaign".
+Be warned that changing the campaign type may result in some content being hidden or shown, so remember you can always change back if you are missing something!
+
+## Visual Campaign Changes
+
+As a part of these new changes (and to make my life easier), the campaign page has been merged with the GM screen.
+Guides and co-op players will now be able to reference moves, oracles, character information, tracks, notes, and setting information all from the campaign page.
+Solo players and players in guided campaigns will have a more streamlined experience, with moves, oracles, and notes being available on the character sheet instead.
+
+As always, I am open to feedback on these changes, and I hope they make the app more enjoyable for everyone!
+
+## Changelog
+
+### New Features
+
+- Added a match reminder to the roll display for oracle rolls that care about dice matching (ask the oracle moves)
+- Added asset clock and counter controls working for assets that use them (ex: Snub Fighter Ability #3, or Marked Ability #2).
+- Added scene challenges to Crew Link
+- Added a new Hinterlands theme
+- Added types to campaigns
+
+### Changes
+
+- Re-added missing roll buttons for assets in the move dialog
+- Made tensions clocks available in Iron Fellowship
+- You can now enter other species into the NPC species box. They will use the default Ironlander name oracles (Ironsworn)
+- Guides can now view their player's bond progress (Starforged)
+- Bond progress is now only visible when you have a connection with a character (Starforged)
+
+### Bug Fixes
+
+- Fixed "replaced" oracle tables not showing children
+- Fixed "replaced" move tables showing up twice
+- Fixed adds being removed from the move dialogs
+- Fixed homebrew collections not being removed from characters and campaigns when deleted

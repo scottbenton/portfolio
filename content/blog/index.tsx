@@ -4,6 +4,7 @@ import * as NextJSPortfolio from "./NextJSPortfolio.mdx";
 import * as AdventPerformance from "./AdventOfCodeDay15.mdx";
 import * as Pomodoro from "./Pomodoro.mdx";
 import * as IFCL3 from "./IronFellowship3-ReleaseNotes.mdx";
+import * as IFCL3_1 from "./IronFellowship3-1-ReleaseNotes.mdx";
 import { DetailedHTMLProps, HTMLAttributes, createElement } from "react";
 
 export interface IBlogPost {
@@ -24,6 +25,7 @@ const posts = [
   AdventPerformance,
   Pomodoro,
   IFCL3,
+  IFCL3_1,
 ];
 
 const HeadingWithId: React.FC<

@@ -6,6 +6,7 @@ import * as Pomodoro from "./Pomodoro.mdx";
 import * as IFCL3 from "./IronFellowship3-ReleaseNotes.mdx";
 import * as IFCL3_1 from "./IronFellowship3-1-ReleaseNotes.mdx";
 import * as IFCL3_3 from "./IronFellowship3-3-ReleaseNotes.mdx";
+import * as IronLink0_1_0 from "./IronLink-0-1-0-ReleaseNotes.mdx";
 import { DetailedHTMLProps, HTMLAttributes, createElement } from "react";
 
 export interface IBlogPost {
@@ -28,6 +29,7 @@ const posts = [
   IFCL3,
   IFCL3_1,
   IFCL3_3,
+  IronLink0_1_0,
 ];
 
 const HeadingWithId: React.FC<
@@ -47,7 +49,7 @@ const HeadingWithId: React.FC<
   return createElement(
     tagName,
     { id, ...headingProps, className: "scroll-mt-24" },
-    children
+    children,
   );
 };
 
@@ -61,37 +63,37 @@ export const blogPosts: IBlogPost[] = posts
             props: DetailedHTMLProps<
               HTMLAttributes<HTMLHeadingElement>,
               HTMLHeadingElement
-            >
+            >,
           ) => <HeadingWithId level={1} {...props} />,
           h2: (
             props: DetailedHTMLProps<
               HTMLAttributes<HTMLHeadingElement>,
               HTMLHeadingElement
-            >
+            >,
           ) => <HeadingWithId level={2} {...props} />,
           h3: (
             props: DetailedHTMLProps<
               HTMLAttributes<HTMLHeadingElement>,
               HTMLHeadingElement
-            >
+            >,
           ) => <HeadingWithId level={3} {...props} />,
           h4: (
             props: DetailedHTMLProps<
               HTMLAttributes<HTMLHeadingElement>,
               HTMLHeadingElement
-            >
+            >,
           ) => <HeadingWithId level={4} {...props} />,
           h5: (
             props: DetailedHTMLProps<
               HTMLAttributes<HTMLHeadingElement>,
               HTMLHeadingElement
-            >
+            >,
           ) => <HeadingWithId level={5} {...props} />,
           h6: (
             props: DetailedHTMLProps<
               HTMLAttributes<HTMLHeadingElement>,
               HTMLHeadingElement
-            >
+            >,
           ) => <HeadingWithId level={6} {...props} />,
         }}
       />

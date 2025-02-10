@@ -1,0 +1,116 @@
+import { TagList } from "@/components/TagList";
+export const meta = {
+  title: "Building this Portfolio with NextJS",
+  subtitle: "How NextJS made creating a performant portfolio a breeze",
+  datePosted: new Date(2020, 7, 29),
+  tags: ["NextJS", "React", "Performance"],
+  url: "nextjs-portfolio",
+};
+
+This isn't the first portfolio that I have created.
+I've iterated through quite a few different designs, using different tools such as Google's Firebase and Github Pages to host different versions of my portfolio.
+The issues with those projects really came down to a few small problems and pain points that I sought to fix with this version.
+
+1. I wanted to add a blog, where I could share things I've learned and demonstrate knowledge of concepts I've been working on.
+1. Users should be able to contact me without needing to open their email.
+1. Performance & SEO needed to be improved.
+1. I wanted to update the design of the site to offer a better user experience.
+
+As I was looking through different technologies for static site generation such as Gatsby JS, I ended up finding NextJS.
+
+## Why I chose NextJS
+
+NextJS is built on top of ReactJS.
+If you aren't familiar with React, it loads javascript from the server onto the user's machine, and then uses that code to generate webpages.
+While this works for users with good internet and users with better computers, it can have negative impacts for users on older devices or on slower internet.
+NextJS solves this problems by using Server Side Rendering (SSR).
+
+The usage of SSR means that the conversion from Javascript to HTML & CSS happens _before_ the code reaches the end user.
+All the end user's browser needs to do is display the output, rather than performing the transformations itself.
+
+SSR also has an impact on Search Engine Optimization (SEO).
+While improvements have been made at indexing sites built off of client side rendered technologies like React, server side rendering ensures that the website crawlers that search engines like Google use can read all of the content on the webpage.
+This improvement means that the website is more likely to show up whenever a relevant search is made.
+
+## Adding the Blog
+
+Adding a blog to the website required a bit of thought.
+While I don't have a problem writing code for the other pages on the website, adding blog posts is easier when you can just write, and let the code handle the styling for you.
+For this purpose, I found `mdxjs`, a project that transforms markdown into html.
+It integrates beautifully into nextJS so that the end user doesn't even get served the markdown files, and just see the final output of the rendering.
+
+Writing blog posts in markdown means that I can quickly add things like code blocks, links, and header tags without needing to write any code.
+MDX also adds the ability to render React components straight from the markdown.
+For example, here is the component I use to render lists of tags on the projects page.
+
+<TagList
+  tags={[
+    "This",
+    "is",
+    "still",
+    "written",
+    "in",
+    "the",
+    "same",
+    "mdx",
+    "file",
+  ]}
+/>
+
+This means that if I need more complex control over styling, or I want to add some custom components or interactions to a blog post, I can!
+
+## The Contact Page
+
+The contact page was another reason for choosing NextJS.
+A static site can not handle sending an email based off of the submission of a form.
+
+Thankfully, nextJS also bundles in an API where you can define endpoints.
+For a larger project, I think keeping the UI and API separate is a better idea, but in this use case, I needed one endpoint that would take a user's name, email, and message and would kick off an email to me.
+NextJS makes that incredibly easy by allowing you to add an `api` folder to wherever you have your routes defined, and then add express-like api handling to it.
+
+## Performance and SEO
+
+I've already touched on how SSR improves both performance and SEO.
+Just to nail the point home, here's how the previous version of the portfolio compares to the new one.
+
+### Base Lighthouse Scores
+
+|       Category | Old Portfolio | New Portfolio | Percent Increase |
+| -------------: | ------------: | ------------: | ---------------: |
+|    Performance |           36% |           97% |             169% |
+|  Accessibility |           95% |           95% |               0% |
+| Best Practices |           93% |          100% |             7.5% |
+|            SEO |           92% |          100% |             8.7% |
+
+### Performance Breakdown
+
+(Lower is better in all categories)
+
+|               Category | Old Portfolio | New Portfolio | Percent Decrease |
+| ---------------------: | ------------: | ------------: | ---------------: |
+| First Contentful Paint |          3.2s |          2.1s |              34% |
+|    Time to Interactive |         10.3s |          2.1s |              79% |
+|        Network Payload |       2,869KB |         572KB |              80% |
+
+As we can see, performance is better among all categories.
+By cutting the network payload by 80%, all users will see page load times decrease.
+
+## Design Improvements
+
+In addition to the technical changes, I wanted to improve the design of the webpage as well.
+I used Figma to help me design what I wanted the landing page to look like, and then used [TailwindCSS](https://tailwindcss.com) to implement the design.
+The big design problem I wanted to fix was centered around helping users find what they care about quickly.
+I did this by creating a landing page, with a primary and a secondary call to action buttons.
+The primary link directs to my projects, so that anyone looking to see my work can find it quickly and easily.
+The secondary link directs users to the contact page, so that anyone looking to reach me can.
+
+Outside of the changes to the Landing Page, I also made changes throughout the application.
+For example, I improved the mobile design by moving the navigation links to the bottom on mobile.
+
+## Final Thoughts
+
+Overall, I found working in NextJS to be simple and enjoyable.
+It manages to combine technologies such as React, Express, and HTML pushState routing in a manner that is simple and easy to understand.
+Its server side rendering capabilities also make it ideal for performance and search engine optimization, and the page load time is blazing fast now.
+
+Interested in learning more? [Check out the source code](https://github.com/scottbenton/portfolio).

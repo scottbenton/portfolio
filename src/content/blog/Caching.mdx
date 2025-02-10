@@ -1,0 +1,117 @@
+export const meta = {
+  title: "Caching Content in React",
+  subtitle: "Using the cache API to store API responses using hooks",
+  datePosted: new Date(2020, 6, 20),
+  tags: ["React", "Cache"],
+  url: "caching-react-content",
+};
+
+Caching important, repeated calls to the API is a good method of ensuring that your web application performs quickly on repeat visits to the site, despite network conditions. Using a cache can also help you implement offline functionality for your progressive web application. For work, I recently needed to implement a **stale while revalidate** cache strategy to ensure that some key calls displayed feedback to the user quickly, while still updating in the background in case anything had changed.
+
+Since this is a feature we may want for multiple API calls, lets take a look at using [React hooks](https://reactjs.org/docs/hooks-intro.html) to create this functionality, as well as the [Context API](https://reactjs.org/docs/context.html) for values you need available across your application.
+
+It is important to note that I will use `axios` for making requests throughout this example, but you can do the same thing using `fetch` or any other API call of your choice.
+
+## Caching Policy
+
+In our case, we wanted the browser to kick off two concurrent calls whenever the user accessed a cached resource. One call should be made to the Browser Cache. Since resource is local, it should return almost immediately, and update the UI to display these values. Since these values could be out of date, we call them "stale". If this is a user's first time visiting the website, there will be no cached values yet, so it is important to note that the cache only effects subsequent API calls.
+
+The other call will go to the API. This is our revalidation call. If we get a response back, and there are new values, we want to update the UI with these new values, as well as updating the browser's cache.
+
+
+## Function Implementation
+
+Since we will need the same stale while revalidate logic in multiple examples here today, lets extract it out to a function called `staleWhileRevalidate`. This function will take in a url and a callback function. This callback function will accept two parameters - data, and an overwrite boolean to know if the data present should overwrite any existing data. We require the overwrite boolean so that we don't run into any race conditions between our API and Cache.
+
+```javascript
+function staleWhileRevalidate(url, updateValues) {
+  // Ensure cache api exists for the current browser
+  if (window.caches) {
+    // Open the cache and find data for the current URL
+    caches.open("api-cache").then((cache) => {
+      cache.match(url).then((response) => {
+        // If the cache has a response cached, convert it and call the callback function
+        if (response) {
+          response.json().then((data) => {
+            // We pass false here so we the caller knows not to overwrite any existing API values
+            updateValues(data, false);
+          });
+        }
+      });
+    });
+  }
+
+  // Make the API call
+  axios.get(url).then((response) => {
+    // Make sure were no errors fetching the data
+    if (response.ok) {
+      // We pass true so the caller knows to overwrite the cached values
+      updateValues(response.data, true);
+    }
+
+    // Update the cache
+    if (window.caches) {
+      caches.open("api-cache").then((cache) => {
+        // Convert Axios Response to a Fetch Response
+        // Note that if you use fetch(), this step is unnecessary.
+
+        // Turn our response into a json blob
+        const blob = new Blob([JSON.stringify(response.data, null)], {
+          type: "application/json",
+        });
+        // store the status from our response
+        const init = { status: response.status };
+
+        // Construct a new fetch response and store it in the cache.
+        cache.put(url, new Response(blob, init));
+      });
+    }
+  });
+}
+```
+
+---
+
+## Basic Hook Implementation
+
+Since this is a feature we may want to integrate into multiple components, lets create a hook for it. We want this hook to take in a url and to run through the stale while revalidate process to return the value back to the UI.
+
+```javascript
+function useCache(url) {
+  // We will store our values in a state, so it triggers a re-render when they change
+  const [state, setState] = React.useState();
+
+  // Arrow function to help us handle updating logic
+  const handleStateUpdate = (data, shouldOverwrite) => {
+    // We use a setState callback to ensure that we aren't comparing against an out of date version of state
+    setState((prevState) => {
+      // Only set the data if we should overwrite or no data currently exists
+      return shouldOverwrite || !prevState ? data : prevState;
+    });
+  };
+
+  // Call our helper function
+  staleWhileRevalidate(url, setState);
+
+  // Return the values to the UI
+  return state;
+}
+```
+
+Now that we've created our hook, we can use it to cache api calls. Here is an example of how this would work.
+
+```jsx
+function MyComponent() {
+  // We have an array of dogs that we want quickly, but also want to eventually get the most up to date values for.
+  const dogs = useCache("/api/dogs");
+
+  return (
+    <>
+      {dogs &&
+        dogs.map((dog, index) => (
+          <span key={index}>{dog.name} is a very good dog</span>
+        ))}
+    </>
+  );
+}
+```

@@ -1,0 +1,72 @@
+export const meta = {
+    title: "Creating a Pomodoro Progressive Web Application",
+    subtitle:
+        "Using cutting edge PWA features to provide a native application experience, where supported",
+    datePosted: new Date(2021, 2, 15),
+    tags: ["React", "PWA", "Progressive Web Application"],
+    url: "pomodoro",
+};
+
+The [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) is a method for splitting work up into timed cycles called pomodoros.
+By default, a pomodoro consists of a 25 minute work period followed by a 5 minute break.
+After four pomodoro cycles, a longer 15 minute break is taken.
+The goal of the pomodoro technique is to spend the 25 minutes focused entirely on the task at hand, and then to use the break periods to take care of any distractions.
+
+## Pomodoro Application Features
+
+This application is built in React, utilizing Material UI for the components.
+It offers comprehensive theming options, as well as control over a lot of pomodoro-specific settings.
+
+[Visit the app](https://pomodoro.scottbenton.dev)
+
+Features
+
+-   Light / Dark theme
+-   Customizable Accent Color
+-   Customizable Cycle Length
+-   Notifications
+-   Wake Locks (keeps the device screen on)
+
+## Progressive Web Application (PWA) Integration
+
+The pomodoro app is a progressive web application.
+This means that, on supported browsers, a user can install the website as an application, and can access the app from their desktop or home screen.
+
+In addition to installing applications, PWAs have a few newer features to help them compete with native applications.
+For example, the [Notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API) allows us to push notifications to the end user's device.
+The notification api is not yet supported on all browsers, but we can use [progressive enhancement](https://web.dev/progressively-enhance-your-pwa/) to utilize it when supported.
+In our pomodoro app, the notification api is used to notify users of a pomodoro cycle ending whenever the application is not focused.
+
+Similarly, the new [Wake Lock API](https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API) gives our application the ability to keep the device's screen on while the user is using the application.
+Since it is so new, its support is very limited, so I don't show the setting to enable wake locks to the end user unless their browser supports it.
+
+Like I've mentioned, these APIs are new, and support across different browsers is spotty.
+At the time of writing this article, here are the support levels for each technology
+
+| Technology           | Chrome | Chrome for Android | Firefox | Safari | IOS Safari |
+| -------------------- | ------ | ------------------ | ------- | ------ | ---------- |
+| Progressive Web Apps | Yes    | Yes                | Yes     | Yes    | Yes        |
+| Notification API     | Yes    | Yes                | Yes     | Yes    | No         |
+| Wake Lock API        | Yes    | Yes                | No      | No     | No         |
+
+While the PWA technology has been around long enough for all major browsers to support it, the notification API is currently not supported on IOS.
+The wake lock API has a very low level of support, as the specification for this API is still a draft.
+In both of these cases, we default usage of both the notification and wake lock apis to false, and check to see if the browser supports the APIs before giving the user the option to enable them.
+
+The nice thing about handling these settings in this way, is that the end user will not see settings for features that aren't supported on their device.
+In addition, due to progressive enhacement, if IOS Safari implements the Notification API next week, I will not need to make any changes to my code in order for end users to be able to enable notifications.
+
+## What I've Learned
+
+### PWA Related
+
+Overall, my biggest takeaway from this project is how unreliable support is for PWA techology.
+Apple seems by far and away the least interested in allowing web applications to reach feature parity with native apps, but even Firefox is missing some key features in both its mobile and desktop applications.
+So long as the features aren't critical to the application, however, we can get away with using progressive enhancement to let users on supported devices make full usage of newer technologies.
+I'm definitely excited to see how PWAs approaching feature parity with native applications affects programming going forwards.
+
+### Other
+
+In addition to everything I learned surrounding PWAs, I also learned the [Hook State](https://hookstate.js.org/) library for this application.
+While not as robust as a larger library like Redux, I found it offered a nice plugin to sync my user settings states to localStorage, allowing automatic persistence of user settings.
+I also approached Material UI's theming tool in a different manner, allowing users to select a theme and an accent color independantly, which I haven't done before.

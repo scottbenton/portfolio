@@ -30,14 +30,7 @@ export function getMetaTags(config?: {
           url: "https://scottbenton.dev",
           title: title,
           description: description,
-          images: [
-            {
-              url: openGraphImageSrc,
-              width: 1200,
-              height: 630,
-              alt: title,
-            },
-          ],
+          images: [openGraphImageSrc],
         }
       : undefined,
   };

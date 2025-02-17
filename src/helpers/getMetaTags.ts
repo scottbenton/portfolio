@@ -3,8 +3,9 @@ import { Metadata } from "next";
 export function getMetaTags(config?: {
   title?: string;
   description?: string;
+  openGraphImageSrc?: string;
 }): Metadata {
-  const { title, description } = config || {};
+  const { title, description, openGraphImageSrc } = config || {};
 
   return {
     title: title ? `${title} | Scott Benton` : "Scott Benton",
@@ -22,5 +23,22 @@ export function getMetaTags(config?: {
         name: "Scott Benton",
       },
     ],
+    openGraph: openGraphImageSrc
+      ? {
+          type: "website",
+          locale: "en_US",
+          url: "https://scottbenton.dev",
+          title: title,
+          description: description,
+          images: [
+            {
+              url: openGraphImageSrc,
+              width: 1200,
+              height: 630,
+              alt: title,
+            },
+          ],
+        }
+      : undefined,
   };
 }

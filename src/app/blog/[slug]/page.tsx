@@ -16,6 +16,7 @@ export async function generateMetadata({
   return getMetaTags({
     title: currentPost?.meta.title,
     description: currentPost?.meta.subtitle,
+    openGraphImageSrc: currentPost?.meta.openGraphImageSrc,
   });
 }
 export default async function BlogPost(props: {

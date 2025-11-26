@@ -1,0 +1,95 @@
+## How does useEffect work?
+
+React's `useEffect` hook takes two arguments: a "setup" function and an optional
+array of dependencies. The setup function can optionally return a cleanup function.
+After the component rerenders, the setup function will again if one of the dependencies
+in the array has changed.
+
+A `useEffect` hook with no dependency array passed will run on _every render_.
+A `useEffect` hook with an empty dependency array passed will run _once_ when the component mounts.
+
+In local development, React will trigger the setup and cleanup functions one extra time whenever they trigger.
+This helps you to ensure the `useEffect` hook properly cleans itself up.
+
+```jsx
+useEffect(() => {
+  console.debug(
+    "I will run on a rerender if dependency1 or dependency2 changes"
+  );
+}, [dependency1, dependency2]);
+
+useEffect(() => {
+  console.debug("I will run on every rerender");
+});
+// equivalent to
+console.debug("I will run on every rerender");
+
+useEffect(() => {
+  console.debug("I will run once on mount");
+}, []);
+```
+
+## How does the cleanup function work?
+
+The setup code should not continue to execute after the component has unmounted, or after the dependencies have changed.
+In order to ensure this, the setup function can return a cleanup function that can be used to clean up any running tasks, remove listeners, or prevent network requests from setting their values into state.
+
+Before the callback function gets run again, or before the component unmounts, React will run this cleanup function.
+
+```jsx
+useEffect(() => {
+  addEventListener();
+
+  return () => {
+    removeEventListener();
+  };
+}, []);
+
+useEffect(() => {
+  let shouldProcess = true;
+  fetch(searchCriteria).then(() => {
+    if (shouldProcess) {
+      // continue with the results
+    } else {
+      // The search criteria has changed
+      // We should ignore these results
+    }
+  });
+
+  return () => {
+    shouldProcess = false;
+  };
+}, [searchCriteria]);
+```
+
+## So how is useEffect commonly misused?
+
+### Mistake \#1 - Computing values with useEffect
+
+```jsx
+const [firstName, setFirstName] = useState("");
+const [lastName, setLastName] = useState("");
+const [fullName, setFullName] = useState("");
+
+useEffect(() => {
+  setFullName(`${firstName} ${lastName}`);
+}, [firstName, lastName]);
+```
+
+If we need to compute a value based on multiple state variables, we should instead use a memoized value.
+
+```jsx
+const fullName = useMemo(
+  () => `${firstName} ${lastName}`,
+  [firstName, lastName]
+);
+// OR if our computation is simple
+const fullName = `${firstName} ${lastName}`;
+```
+
+This change also has an added performance benefit - the code with the `useEffect` will render twice when you update the first or last name - once upon the initial state change, and once when the full name changes.
+The memoized code will not cause that second rerender - the combined value will be computed and used on the first render.
+
+### Mistake \#2 - Shared event handlers
+
+### Mistake \#3 - Running code once on mount

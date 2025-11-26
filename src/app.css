@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@plugin '@iconify/tailwind4';
+
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+	--font-display: 'Jersey 15', sans-serif;
+	--font-body: 'Source Sans 3 Variable', sans-serif;
+}
+
+body {
+	@apply bg-white text-slate-700;
+	@variant dark {
+		@apply bg-slate-950 text-slate-300;
+	}
+}

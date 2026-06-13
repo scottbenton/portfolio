@@ -3,16 +3,19 @@
 	import JobDetailsSection from '../components/JobDetailsSection.svelte';
 	import GradientHeader from '../components/GradientHeader.svelte';
 	import Section from '../components/Section.svelte';
-	import MostRecentBlogPost from '../components/MostRecentBlogPost.svelte';
+	import RecentBlogPosts from '../components/RecentBlogPosts.svelte';
 	import Head from '../components/Head.svelte';
 	import AboutMe from '../components/AboutMe.svelte';
+	import FeaturedApps from '../components/FeaturedApps.svelte';
+	import { reveal } from '../utils/reveal';
 </script>
 
 {#snippet resumeLink()}
 	<a
-		class="rounded-xl bg-white px-5 py-3 text-xl font-semibold text-indigo-700 shadow-md shadow-indigo-950 transition-all duration-150 ease-in-out hover:scale-105 hover:shadow-lg"
+		class="btn-pixel pixel-btn"
 		href="/Scott Benton - Software Engineer.pdf"
-		target="__blank"
+		target="_blank"
+		rel="noopener noreferrer"
 	>
 		View my Resumé
 	</a>
@@ -24,18 +27,40 @@
 </Section>
 <Section divider />
 <Section>
-	<AboutMe />
+	<div use:reveal>
+		<AboutMe />
+	</div>
 </Section>
 <Section divider />
 <Section>
-	<HighLevelDetails />
+	<div use:reveal>
+		<HighLevelDetails />
+	</div>
 </Section>
 <Section divider />
 <Section>
-	<JobDetailsSection />
+	<div use:reveal>
+		<JobDetailsSection />
+	</div>
 </Section>
 <Section divider />
 <Section>
-	<MostRecentBlogPost />
+	<div use:reveal>
+		<FeaturedApps />
+	</div>
 </Section>
 <Section divider />
+<Section>
+	<div use:reveal>
+		<RecentBlogPosts />
+	</div>
+</Section>
+<Section divider />
+
+<style>
+	@reference "../app.css";
+
+	.pixel-btn {
+		@apply inline-block bg-white px-6 py-2.5 font-display text-2xl text-indigo-950;
+	}
+</style>

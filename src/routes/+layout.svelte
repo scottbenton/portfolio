@@ -15,11 +15,19 @@
 </svelte:head>
 
 <div class="flex min-h-screen flex-col overflow-hidden font-body">
-	<Section>
-		<Header />
-	</Section>
+	<div class="sticky top-0 z-40 bg-white/85 backdrop-blur-md dark:bg-slate-950/85">
+		<Section>
+			<Header />
+		</Section>
+	</div>
 
-	<main class="relative flex flex-col overflow-hidden">
+	<main class="relative flex flex-1 flex-col overflow-hidden">
 		{@render children?.()}
+		<!-- Carries the column rails to the bottom of the viewport on short pages -->
+		<div class="flex flex-1 flex-col" aria-hidden="true">
+			<div
+				class="mx-auto w-full max-w-3xl flex-1 border-x border-slate-300 dark:border-slate-800"
+			></div>
+		</div>
 	</main>
 </div>

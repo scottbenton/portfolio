@@ -16,7 +16,9 @@
 <Section divider />
 <Section>
 	<div class="mx-auto prose py-8 prose-slate dark:prose-invert">
-		<p class="font-bold">{dateToLongString(post.datePosted)}</p>
+		<p class="font-mono text-sm text-slate-500 dark:text-slate-400">
+			{dateToLongString(post.datePosted)}
+		</p>
 		{#await content then Module}
 			<Module.default />
 		{/await}

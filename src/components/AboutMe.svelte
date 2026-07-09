@@ -3,7 +3,7 @@
 </script>
 
 <div class="flex flex-col py-8">
-	<SectionHeading index="01" title="About Me" />
+	<SectionHeading title="About Me" />
 	<p class="mt-5 text-2xl font-semibold text-slate-900 dark:text-white">Hi! I'm Scott.</p>
 	<p class="mt-2 max-w-prose text-lg leading-relaxed">
 		I currently work on access management at Indeed, where I help people get jobs by ensuring large

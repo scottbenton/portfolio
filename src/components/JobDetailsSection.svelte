@@ -3,7 +3,7 @@
 </script>
 
 <div class="py-8">
-	<SectionHeading index="03" title="Experience" />
+	<SectionHeading title="Experience" />
 	<div class="mt-6 grid grid-cols-1 gap-x-8 sm:grid-cols-[auto_1fr] sm:gap-y-8">
 		<p class="date">2022-Present</p>
 		<div class="job-details">

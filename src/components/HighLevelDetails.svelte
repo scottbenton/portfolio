@@ -26,7 +26,7 @@
 </script>
 
 <div class="flex flex-col py-8">
-	<SectionHeading index="02" title="At a Glance" />
+	<SectionHeading title="At a Glance" />
 	<div class="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
 		<div class="fact">
 			<span class="fact-icon icon-[pixelarticons--briefcase]" aria-hidden="true"></span>

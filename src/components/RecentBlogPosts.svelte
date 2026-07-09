@@ -7,7 +7,7 @@
 </script>
 
 <div class="py-8">
-	<SectionHeading index="05" title="Recent Blog Posts" />
+	<SectionHeading title="Recent Blog Posts" />
 	<div class="mt-5 flex flex-col gap-4">
 		{#each recentPosts as post (post.slug)}
 			<a

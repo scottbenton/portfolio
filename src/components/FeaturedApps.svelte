@@ -5,7 +5,7 @@
 </script>
 
 <div class="py-8">
-	<SectionHeading index="04" title="Things I've Built" />
+	<SectionHeading title="Things I've Built" />
 	<div class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-3">
 		{#each featuredApps as app (app.url)}
 			<AppCard {app} titleTag="h3" />

@@ -1,0 +1,60 @@
+<script lang="ts">
+	import StorybookEmbed from '../components/StorybookEmbed.svelte';
+	import StorybookThemeControls from '../components/StorybookThemeControls.svelte';
+
+	const STORYBOOK_BASE = 'https://iron-link-storybook.pages.dev/iframe.html';
+
+	let mode = $state<'light' | 'dark'>('light');
+	let scheme = $state('default');
+	const globalsQuery = $derived(`globals=mode:${mode};scheme:${scheme}`);
+</script>
+
+Hey all!
+
+Worlds in Iron Link are almost ready for release, and I have begun working on the next major update.
+This is currently planned to be a redesign of Iron Link's design system, and a rework of its mobile experience to make everything easier to use, and more personalized.
+If you want to see the early plans for the redesign, I've included screenshots and interactive examples below.
+I will leave more information as to what I am trying to achieve with the redesign at the end.
+
+## Previews
+
+Here are a few interactive previews from the redesign's component library. Try them out, and switch around the different color modes and schemes to get a feel for the new look!
+
+<StorybookThemeControls bind:mode bind:scheme />
+
+The progress tracker introduces animation to adding and removing progress. Click "Fulfill your Vow" to see the new rolls in action.
+
+<StorybookEmbed
+	src={`${STORYBOOK_BASE}?id=previews-progress-track--vow&viewMode=story&${globalsQuery}`}
+	title="Progress track preview"
+	height="400px"
+/>
+
+The new moves sidebar makes it clear which moves belong to which categories.
+
+<StorybookEmbed
+	src={`${STORYBOOK_BASE}?id=previews-moves-sidebar--ironsworn-moves&viewMode=story&${globalsQuery}`}
+	title="Moves sidebar preview"
+/>
+
+The layout of the asset cards have not changed, but they showcase the new design, direction, and condition meter component.
+
+<StorybookEmbed
+	src={`${STORYBOOK_BASE}?id=previews-asset-cards--starforged&viewMode=story&${globalsQuery}`}
+	title="Asset cards preview"
+	height="75lvh"
+/>
+
+## Why are you redesigning things?
+
+Essentially, I am not a big fan of the current design.
+I think it is outdated in places, can be a bit of a mishmash of styles and patterns, and is difficult to use on mobile.
+It also feels more serious than I think an app for playing a TTRPG should - we're missing some personality in the design.
+
+My hope is that by moving from Material Design to our own UI system, we can fix these and create an experience that is friendlier, prettier, and more understandable than the current design.
+
+## Have feedback?
+
+These designs are preliminary, and I really want feedback before I roll anything out.
+If you have thoughts, please reach out on the [Ironsworn Discord](https://discord.gg/8bRuZwK).
+We have our own channel - `#iron-fellowship-and-crew-link`.

@@ -81,16 +81,16 @@ const blogPostsArray: BlogPostMetadata[] = [
 		slug: 'iron-link-beta-0-2-0',
 		openGraphImageSrc: '/assets/IronLink/0-2-0/og.png',
 		load: () => import('./09-IronLink_0_2_Release.svx')
+	},
+	{
+		title: 'Iron Link Redesign',
+		subtitle: 'Preview Upcoming Changes',
+		datePosted: getDate(2026, 11, 22),
+		tags: ['Iron Link'],
+		slug: 'iron-link-redesign-preview',
+		openGraphImageSrc: '/assets/IronLink/basic-og.png',
+		load: () => import('./10-IronLink_Redesign_Preview.svx')
 	}
-	// {
-	// 	title: 'Using useEffect',
-	// 	subtitle: "React's most misused hook",
-	// 	datePosted: new Date(2025, 2, 5),
-	// 	tags: ['React', 'JavaScript'],
-	// 	slug: 'using-use-effect',
-	// 	load: () => import('./10-UseEffect.svx')
-	// }
-
 	// Add more blog posts here
 ];
 

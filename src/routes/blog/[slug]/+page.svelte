@@ -9,7 +9,7 @@
 	const { post, content } = data;
 </script>
 
-<Head title={post.title} description={post.subtitle} />
+<Head title={post.title} description={post.subtitle} openGraphImageSrc={post.openGraphImageSrc} />
 <Section>
 	<GradientHeader title={post.title} subtitle={post.subtitle} />
 </Section>

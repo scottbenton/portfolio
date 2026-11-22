@@ -8,7 +8,11 @@
 	const { title, description, openGraphImageSrc }: Props = $props();
 
 	const fullTitle = $derived(title ? `${title} | Scott Benton` : 'Scott Benton');
-	const ogImage = $derived(openGraphImageSrc ?? 'https://scottbenton.dev/og.jpg');
+	const ogImage = $derived(
+		openGraphImageSrc
+			? new URL(openGraphImageSrc, 'https://scottbenton.dev').toString()
+			: 'https://scottbenton.dev/og.jpg'
+	);
 </script>
 
 <svelte:head>
